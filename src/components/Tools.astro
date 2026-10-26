@@ -12,7 +12,7 @@ import { tools } from '../data/content';
       {Object.entries(tools).map(([group, list]) => (
         <div class:list={['credit', group === 'Ops' && 'credit--wide']} data-reveal>
           <p class="t-label credit__h">{group}</p>
-          <ul>
+          <ul class="cc-list">
             {list.map((t) => <li class:list={[t.startsWith('TODO') && 'tbd']}>{t.startsWith('TODO') ? 'More to come' : t}</li>)}
           </ul>
         </div>

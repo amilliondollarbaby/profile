@@ -5,12 +5,12 @@ const { num, title, swatch = 'pink' } = Astro.props;
 ---
 <div class="rh" data-reveal>
   <p class="pill"><span class:list={['swatch', `sw-${swatch}`]} aria-hidden="true"></span>({num}) // {title}</p>
-  <p class="t-label rh__r">Danielle Sellado</p>
+  <p class="t-label rh__r">Danielle Sellado <span class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span></p>
 </div>
 <hr class="rule rule--ink" />
 <style>
   .rh { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 14px; }
   .rh .pill { margin: 0; }
-  .rh__r { color: var(--ink); }
+  .rh__r { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); }
   @media (max-width: 600px) { .rh__r { display: none; } }
 </style>

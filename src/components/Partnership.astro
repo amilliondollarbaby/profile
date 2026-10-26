@@ -17,9 +17,9 @@ const isTodo = (s: string) => s.startsWith('TODO');
       <aside class="numbers" aria-labelledby="numbers-title">
         <p id="numbers-title" class="t-label">At a glance</p>
         <dl>
-          {stats.map((s) => (
+          {stats.map((s, i) => (
             <div class="num" data-reveal>
-              <dt class="t-caption">{s.label}</dt>
+              <dt class="t-caption"><span class:list={['tick', 'tick--s', `sw-${['pink', 'purple', 'yellow', 'sky'][i % 4]}`]} aria-hidden="true"></span> {s.label}</dt>
               <dd class="num__v">{s.value}</dd>
             </div>
           ))}
@@ -29,9 +29,9 @@ const isTodo = (s: string) => s.startsWith('TODO');
       <div class="career">
         <p class="t-label">Career</p>
         <ol class="roles">
-          {modules.map((m) => (
+          {modules.map((m, i) => (
             <li class="role" data-reveal>
-              <p class="t-label role__dates">{isTodo(m.dates) ? <span class="tbd">Dates to come</span> : m.dates}</p>
+              <p class="t-label role__dates"><span class:list={['swatch', `sw-${['pink', 'purple', 'yellow', 'sky'][i % 4]}`]} aria-hidden="true"></span> {isTodo(m.dates) ? <span class="tbd">Dates to come</span> : m.dates}</p>
               <div>
                 <h3 class="t-title">{m.role}</h3>
                 <p class="role__org"><em>{m.org}</em>{m.status === 'ACTIVE' && <span class="role__now"><span class="swatch sw-purple" aria-hidden="true"></span>Current</span>}</p>
@@ -77,7 +77,7 @@ const isTodo = (s: string) => s.startsWith('TODO');
   .roles { list-style: none; margin: 16px 0 0; padding: 0; border-top: 1px solid var(--ink); }
   .role { display: grid; gap: 6px 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
   @media (min-width: 700px) { .role { grid-template-columns: 170px 1fr; } }
-  .role__dates { color: var(--ink); padding-top: 6px; }
+  .role__dates { display: flex; align-items: center; gap: 8px; color: var(--ink); padding-top: 6px; }
   .role__org { margin: 4px 0 0; display: flex; align-items: center; gap: 14px; color: var(--body-ink); }
   .role__now { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
   .role__line { margin: 6px 0 0; color: var(--muted); font-size: 15px; }

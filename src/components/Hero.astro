@@ -9,6 +9,8 @@ import { site } from '../data/content';
   <p class="ghost" aria-hidden="true"><span>Sellado</span><em>Dioné</em></p>
 
   <span class="tick sw-pink mark-sq" aria-hidden="true"></span>
+  <span class="tick tick--s sw-purple mark-sq2" aria-hidden="true"></span>
+  <span class="orbit" aria-hidden="true"><i class="swatch sw-yellow"></i><i class="swatch sw-sky"></i><i class="swatch sw-pink"></i></span>
   <p class="t-label corner">Davao, PH<br />Working U.S. hours</p>
 
   <div class="wrap stage">
@@ -40,6 +42,7 @@ import { site } from '../data/content';
 
   <div class="wrap foot">
     <a class="t-label cue" href="#partnership">Scroll ↓</a>
+    <span class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <span class="dash sw-sky" aria-hidden="true"></span>
   </div>
 </section>
@@ -57,6 +60,14 @@ import { site } from '../data/content';
   .ghost em { position: absolute; left: 50%; top: 4%; transform: translateX(-30%) rotate(-6deg); font-family: var(--script); font-style: normal; font-weight: 400; font-stretch: 100%; text-transform: none; font-size: 0.8em; color: rgba(28, 26, 31, 0.06); }
 
   .mark-sq { position: absolute; z-index: 2; left: var(--gutter); top: calc(var(--nav-h) + 76px); }
+  .mark-sq2 { position: absolute; z-index: 2; left: calc(var(--gutter) + 36px); top: calc(var(--nav-h) + 94px); }
+  /* Three tiny dots sitting on the ring. */
+  .orbit { position: absolute; z-index: 2; width: min(64vw, 620px); aspect-ratio: 1; left: calc(var(--gutter) - 4vw); top: 16%; pointer-events: none; }
+  .orbit i { position: absolute; width: 11px; height: 11px; margin: -5.5px; }
+  .orbit i:nth-child(1) { left: 85.4%; top: 14.6%; }
+  .orbit i:nth-child(2) { left: 100%; top: 50%; }
+  .orbit i:nth-child(3) { left: 14.6%; top: 85.4%; }
+  @media (max-width: 899px) { .orbit { display: none; } }
   .corner { position: absolute; z-index: 2; right: var(--gutter); top: calc(var(--nav-h) + 16px); text-align: right; color: var(--ink); }
 
   .stage { position: relative; z-index: 1; flex: 1; display: grid; gap: 32px; padding-top: 120px; }
@@ -75,7 +86,8 @@ import { site } from '../data/content';
   .nick { position: absolute; left: 40%; top: 22%; font-family: var(--script); font-style: normal; font-size: min(24vw, 230px); line-height: 1; color: var(--ink); transform: rotate(-6deg); pointer-events: none; -webkit-text-stroke: 0.05em var(--paper); paint-order: stroke fill; }
   .line { max-width: 22em; margin-top: 36px; font-size: clamp(18px, 1.7vw, 26px); line-height: 1.15; }
 
-  .foot { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; padding-block: 20px 28px; }
+  .foot { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 20px 28px; }
+  .foot .ticks { margin-left: auto; }
   .cue { color: var(--ink); text-decoration: none; }
 
   @media (min-width: 900px) {

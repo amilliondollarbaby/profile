@@ -1,6 +1,11 @@
 ---
 import { sections, site } from '../data/content';
-const links = sections.filter((s) => !['intro', 'statement'].includes(s.id));
+// Reels gets its own link so it is easy to find.
+const links = [
+  ...sections.filter((s) => ['partnership', 'creative'].includes(s.id)),
+  { id: 'reels', label: 'Reels' },
+  ...sections.filter((s) => ['ai', 'lab', 'contact'].includes(s.id)),
+];
 ---
 <header class="nav" id="nav">
   <div class="wrap nav__inner">

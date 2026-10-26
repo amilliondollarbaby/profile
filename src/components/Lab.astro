@@ -11,15 +11,15 @@ const pieces = [
 ---
 <section id="lab" class="spread" aria-labelledby="lab-title">
   <div class="wrap">
-    <RunningHead num="07" title="The lab" swatch="purple" />
+    <RunningHead num="07" title="Passion projects" swatch="purple" />
     <div class="grid open">
-      <h2 id="lab-title" class="t-headline open__h" data-reveal>What I build <em>when nobody’s asking.</em></h2>
-      <p class="t-deck open__deck" data-reveal><span class="tbd">[Draft]</span> 3D products and experiments, each with a note on why it exists.</p>
+      <h2 id="lab-title" class="t-headline open__h" data-reveal>Passion <em>projects</em></h2>
+      <p class="t-deck open__deck" data-reveal>What I build when nobody’s asking. <span class="tbd">[Draft]</span> 3D products and experiments, each with a note on why it exists.</p>
     </div>
     <div class="lab">
       {pieces.map((p, i) => (
         <div class="lab__item" style={`--span:${p.span};--off:${p.off}px`}>
-          <Plate num={String(24 + i)} caption="3D render. Why I made this: to come." ratio={p.ratio} />
+          <Plate num={String(24 + i)} label={`Project 0${i + 1}`} caption="3D render. Why I made this: to come." ratio={p.ratio} />
         </div>
       ))}
     </div>

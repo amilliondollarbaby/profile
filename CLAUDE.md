@@ -135,6 +135,8 @@ A few personal, human touches, then **one clear invite to meet** with a booking 
 > - **One main photo of her** on the cover: a cutout standing in front of the type, no frame. No collage of frames.
 > - **No logo anywhere.** The scribble heart is retired.
 > - **Layout:** 12-column grid, a running-head pill on every spread, hairline rules, a different composition per spread. Buttons are underlined text links.
+> - **Each format has its own block** under the showcase (04.1 Graphics, 04.2 Designs, 04.3 AI motion, 04.4 Reels as phone-shaped cards), and "Reels" and "Passion projects" are in the nav so they are easy to find.
+> - **Cotton candy appears as many tiny marks** across every section: the four-square row in each running head, coloured dots on list items, small squares on numbers and career dates, coloured registration marks, dots on the cover ring, the pink link underline. Always small.
 > - **Work showcase (section 04):** split staggered title ("Socials" / script "&" "Creative"), small credits, registration marks, her photo centre stage, a strip of work cards sliding across the middle (pauses on hover, static under reduced motion).
 > - The palette and type tables below are the **old** brand, kept for reference only.
 

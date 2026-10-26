@@ -23,8 +23,8 @@ const work = [
 
   <div class="stage">
     <h2 id="creative-title" class="sr-only">Socials and creative work</h2>
-    {['tl', 'tr', 'bl', 'br'].map((pos) => (
-      <svg class={`mark mark--${pos}`} aria-hidden="true" width="44" height="18" viewBox="0 0 44 18" fill="none" stroke="currentColor" stroke-width="1"><circle cx="9" cy="9" r="5" /><circle cx="9" cy="9" r="1.6" fill="currentColor" /><circle cx="35" cy="9" r="6" /><path d="M35 1v16M27 9h16" /></svg>
+    {['tl', 'tr', 'bl', 'br'].map((pos, i) => (
+      <svg style={`color:var(--cc-${['pink', 'purple', 'yellow', 'sky'][i]})`} class={`mark mark--${pos}`} aria-hidden="true" width="44" height="18" viewBox="0 0 44 18" fill="none" stroke="currentColor" stroke-width="1"><circle cx="9" cy="9" r="5" /><circle cx="9" cy="9" r="1.6" fill="currentColor" /><circle cx="35" cy="9" r="6" /><path d="M35 1v16M27 9h16" /></svg>
     ))}
 
     <p class="t-display ttl ttl--l" aria-hidden="true">Socials</p>
@@ -45,9 +45,9 @@ const work = [
 
     <div class="strip" aria-label="Work">
       <ul class="strip__track">
-        {[0, 1].map((copy) => work.map((w) => (
+        {[0, 1].map((copy) => work.map((w, i) => (
           <li class="card" style={`--ratio:${w.ratio}`} aria-hidden={copy === 1 ? 'true' : undefined}>
-            <span class="t-label card__tag">{w.kind} {w.n}</span>
+            <span class="t-label card__tag"><span class:list={['swatch', `sw-${['pink', 'purple', 'yellow', 'sky'][i % 4]}`]} aria-hidden="true"></span> {w.kind} {w.n}</span>
             <span class="card__tbd">To come</span>
           </li>
         )))}
@@ -63,7 +63,7 @@ const work = [
 
   .stage { position: relative; height: clamp(760px, 100svh, 1000px); margin-top: 8px; color: var(--ink); }
 
-  .mark { position: absolute; color: var(--muted); z-index: 5; }
+  .mark { position: absolute; z-index: 5; stroke-width: 1.5; }
   .mark--tl { top: 16px; left: var(--gutter); }
   .mark--tr { top: 16px; right: var(--gutter); transform: scaleX(-1); }
   .mark--bl { bottom: 16px; left: var(--gutter); }

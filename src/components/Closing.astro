@@ -30,19 +30,19 @@ const sw = ['pink', 'purple', 'yellow', 'sky'];
 
     <footer class="grid colophon">
       <div class="col">
-        <p class="t-label">Contact</p>
+        <p class="t-label col__h"><span class="swatch sw-pink" aria-hidden="true"></span> Contact</p>
         <p>{site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : <span class="tbd">Email to come</span>}</p>
       </div>
       <div class="col">
-        <p class="t-label">Elsewhere</p>
+        <p class="t-label col__h"><span class="swatch sw-purple" aria-hidden="true"></span> Elsewhere</p>
         <ul>{profiles.map((p) => <li>{p.url ? <a href={p.url} rel="noopener" target="_blank">{p.label} ↗</a> : <span class="tbd">{p.label}, link to come</span>}</li>)}</ul>
       </div>
       <div class="col">
-        <p class="t-label">Based</p>
+        <p class="t-label col__h"><span class="swatch sw-yellow" aria-hidden="true"></span> Based</p>
         <p>Davao, Philippines<br /><em>Working U.S. hours</em></p>
       </div>
       <div class="col">
-        <p class="t-label">Colophon</p>
+        <p class="t-label col__h"><span class="swatch sw-sky" aria-hidden="true"></span> Colophon</p>
         <p>Set in Archivo and Great Vibes.</p>
       </div>
       <div class="sign">
@@ -68,6 +68,7 @@ const sw = ['pink', 'purple', 'yellow', 'sky'];
 
   .colophon { margin-top: clamp(96px, 10vw, 160px); padding-top: 20px; border-top: 1px solid var(--ink); row-gap: 32px; }
   .col { grid-column: span 6; }
+  .col__h { display: flex; align-items: center; gap: 8px; }
   .col p, .col ul { margin: 8px 0 0; }
   .col ul { list-style: none; padding: 0; }
   .col a { text-decoration: none; border-bottom: 1px solid var(--line); }

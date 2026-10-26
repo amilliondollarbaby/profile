@@ -14,7 +14,7 @@ import { aiWorkflow } from '../data/content';
     <ol class="steps">
       {aiWorkflow.map((w, i) => (
         <li class="grid step" data-reveal>
-          <span class="step__n" aria-hidden="true">0{i + 1}</span>
+          <span class="step__n" aria-hidden="true"><span class:list={['tick', 'tick--s', `sw-${['pink', 'purple', 'yellow', 'sky'][i % 4]}`]}></span> 0{i + 1}</span>
           <h3 class="step__name">{w.step}</h3>
           <p class:list={['step__detail', w.detail.startsWith('TODO') && 'tbd']}>{w.detail.startsWith('TODO') ? 'Detail to come from Dione.' : w.detail}</p>
         </li>
@@ -34,7 +34,7 @@ import { aiWorkflow } from '../data/content';
 
   .steps { list-style: none; margin: clamp(64px, 7vw, 104px) 0 0; padding: 0; border-top: 1px solid var(--ink); }
   .step { align-items: baseline; row-gap: 4px; padding: 22px 0; border-bottom: 1px solid var(--line); }
-  .step__n { grid-column: 1 / span 2; font-family: var(--script); font-size: 34px; line-height: 1; color: var(--muted); }
+  .step__n { grid-column: 1 / span 2; display: inline-flex; align-items: center; gap: 10px; font-family: var(--script); font-size: 34px; line-height: 1; color: var(--muted); }
   .step__name { grid-column: 3 / -1; margin: 0; font-weight: 800; font-stretch: 125%; text-transform: uppercase; font-size: clamp(22px, 2.6vw, 40px); line-height: 1; letter-spacing: -0.015em; }
   .step__detail { grid-column: 3 / -1; margin: 0; color: var(--body-ink); }
   @media (min-width: 900px) {

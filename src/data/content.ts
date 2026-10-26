@@ -20,7 +20,7 @@ export const sections = [
   { id: 'creative', num: '04', label: 'Socials & creative' },
   { id: 'ai', num: '05', label: 'AI workflows' },
   { id: 'tools', num: '06', label: 'Tools' },
-  { id: 'lab', num: '07', label: 'Lab' },
+  { id: 'lab', num: '07', label: 'Passion projects' },
   { id: 'contact', num: '08', label: "Let’s meet" },
 ] as const;
 

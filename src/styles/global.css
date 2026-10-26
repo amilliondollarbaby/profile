@@ -238,7 +238,39 @@ button {
 .sw-purple { --sw: var(--cc-purple); }
 .sw-yellow { --sw: var(--cc-yellow); }
 .sw-sky { --sw: var(--cc-sky); }
+/* A row of four tiny squares, one per cotton candy colour. */
+.ticks {
+  display: inline-flex;
+  gap: 4px;
+  vertical-align: middle;
+}
+.ticks i {
+  width: 7px;
+  height: 7px;
+}
+.ticks i:nth-child(1) { background: var(--cc-pink); }
+.ticks i:nth-child(2) { background: var(--cc-purple); }
+.ticks i:nth-child(3) { background: var(--cc-yellow); }
+.ticks i:nth-child(4) { background: var(--cc-sky); }
+/* Bullets that cycle through the four colours, for lists. */
+.cc-list > li::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 12px;
+  border-radius: 50%;
+  vertical-align: 0.12em;
+  background: var(--cc-pink);
+}
+.cc-list > li:nth-child(4n + 2)::before { background: var(--cc-purple); }
+.cc-list > li:nth-child(4n + 3)::before { background: var(--cc-yellow); }
+.cc-list > li:nth-child(4n + 4)::before { background: var(--cc-sky); }
 /* The little square and dash from the reference. */
+.tick--s {
+  width: 10px !important;
+  height: 10px !important;
+}
 .tick {
   display: inline-block;
   width: 28px;
@@ -262,6 +294,10 @@ button {
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
   transition: opacity 0.2s;
+}
+.link {
+  border-bottom-color: var(--cc-pink);
+  border-bottom-width: 2px;
 }
 .link:hover {
   opacity: 0.6;

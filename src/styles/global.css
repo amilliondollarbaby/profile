@@ -341,95 +341,44 @@ html.lenis body {
   overflow: hidden;
 }
 
-/* ---------- 3D keyboard keys (Dione's button style) ----------
-   A keycap: the lit top face, a darker side edge underneath, and a soft shadow.
-   It presses down when clicked. Colour comes from --key (a cotton candy shade). */
-.key {
-  --key: var(--cc-pink);
-  --key-side: color-mix(in srgb, var(--key) 62%, #1c1a1f);
-  position: relative;
-  display: inline-grid;
-  place-items: center;
-  min-width: 64px;
-  min-height: 56px;
-  padding: 14px 22px 20px;
-  border: 0;
-  border-radius: 12px;
-  background: var(--key);
-  color: var(--ink);
-  font-weight: 700;
+/* ---------- Buttons: solid ink pills, matching the outlined pill labels ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border: 1.2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
   font-stretch: 125%;
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
-  cursor: pointer;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    0 6px 0 var(--key-side),
-    0 14px 22px rgba(28, 26, 31, 0.22);
-  transform: translateY(-6px);
-  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s;
 }
-/* The slightly dished top of the cap. */
-.key::before {
-  content: '';
-  position: absolute;
-  inset: 4px 6px 10px;
-  border-radius: 9px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 70%);
-  pointer-events: none;
+.btn:hover {
+  background: transparent;
+  color: var(--ink);
 }
-.key > * {
-  position: relative;
+.btn--line {
+  background: transparent;
+  color: var(--ink);
 }
-/* Small secondary legend in the corner, like a real keycap. */
-.key__legend {
-  position: absolute;
-  top: 7px;
-  left: 10px;
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  opacity: 0.7;
+.btn--line:hover {
+  background: var(--ink);
+  color: #ffffff;
 }
-.key:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    0 4px 0 var(--key-side),
-    0 10px 18px rgba(28, 26, 31, 0.2);
-}
-.key:active {
-  transform: translateY(0);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    0 0 0 var(--key-side),
-    0 3px 6px rgba(28, 26, 31, 0.2);
-}
-.key--purple { --key: var(--cc-purple); }
-.key--yellow { --key: var(--cc-yellow); }
-.key--sky { --key: var(--cc-sky); }
-.key--white { --key: #ffffff; --key-side: #c9c8cc; }
-.key--sm {
-  min-width: 0;
-  min-height: 36px;
-  padding: 8px 14px 11px;
-  border-radius: 9px;
+.btn--sm {
+  padding: 8px 16px;
   font-size: 10px;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    0 4px 0 var(--key-side),
-    0 8px 14px rgba(28, 26, 31, 0.18);
-  transform: translateY(-4px);
 }
-.key--sm::before {
-  inset: 3px 4px 7px;
-  border-radius: 7px;
-}
-.key--wide {
-  min-width: 260px;
-  min-height: 72px;
-  font-size: 15px;
+.btn--big {
+  padding: 20px 34px;
+  font-size: 13px;
 }
 
 /* ---------- Colour blocks: bold cotton candy shapes used as design elements ---------- */

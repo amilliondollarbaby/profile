@@ -24,7 +24,7 @@ const sw = ['pink', 'purple', 'yellow', 'sky'];
       <div class="invite__side" data-reveal>
         <p class="t-deck"><span class="tbd">[Draft]</span> Tell me what’s on your plate. We’ll see if I’m the right fit.</p>
         <p class="t-caption tbd">A few personal touches, when Dione is ready to share.</p>
-        <a class="key key--wide" href={site.bookingUrl || '#contact'}><span class="key__legend" aria-hidden="true">↵ enter</span><span>Book a call</span></a>
+        <a class="btn btn--big" href={site.bookingUrl || '#contact'}><span class="swatch sw-pink" aria-hidden="true"></span>Book a call <span aria-hidden="true">→</span></a>
         {!site.bookingUrl && <p class="t-caption">Booking link to come.</p>}
       </div>
     </div>

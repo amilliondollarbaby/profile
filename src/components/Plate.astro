@@ -1,0 +1,30 @@
+---
+// An image plate. Until Dione sends the real image it shows a quiet studio-gray frame.
+interface Props {
+  num: string;
+  label?: string;
+  caption?: string;
+  ratio?: string;
+  accent?: 'pink' | 'purple' | 'yellow' | 'sky';
+  class?: string;
+}
+const { num, label, caption, ratio = '4 / 5', accent, class: cls } = Astro.props;
+---
+<figure class:list={['plate', cls]} data-reveal>
+  <div class:list={['plate__frame', accent && 'has-accent']} style={`--ratio:${ratio};${accent ? `--acc:var(--cc-${accent})` : ''}`}>
+    <slot><span class="t-label plate__tbd">Image to come</span></slot>
+  </div>
+  <figcaption class="plate__cap">
+    <span class="t-label plate__no">{label ?? `Plate ${num}`}</span>
+    {caption && <span class="t-caption">{caption}</span>}
+  </figcaption>
+</figure>
+<style>
+  .plate { margin: 0; }
+  .plate__frame { position: relative; aspect-ratio: var(--ratio); background: var(--paper-deep); display: grid; place-items: center; }
+  /* Cotton candy accent: a pastel paper swatch peeking out behind the image. */
+  .has-accent { box-shadow: 18px 18px 0 var(--acc); margin-right: 18px; }
+  .plate__no { white-space: nowrap; }
+  .plate__cap { display: flex; gap: 14px; align-items: baseline; margin-top: 14px; }
+  .plate__frame.has-accent + .plate__cap { margin-top: 30px; }
+</style>

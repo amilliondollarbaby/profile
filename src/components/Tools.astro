@@ -1,29 +1,39 @@
 ---
-import SectionHead from './SectionHead.astro';
+import RunningHead from './RunningHead.astro';
 import { tools } from '../data/content';
 ---
-<section id="tools" class="section grain" aria-labelledby="tools-title">
+<section id="tools" class="spread" aria-labelledby="tools-title">
   <div class="wrap">
-    <SectionHead num="06" label="Tools" note="logos: TODO" />
-    <h2 id="tools-title" class="display h2" data-reveal>The software, <span class="serif-i"><span class="hl hl--sky">for the record:</span></span></h2>
-    <div class="groups">
-      {Object.entries(tools).map(([group, list], g) => { const tint = `dot--${['purple', 'pink', 'sky'][g]}`; return (
-        <div class="group" data-reveal>
-          <h3 class="hand group__name">{group}</h3>
-          <ul class="chips">
-            {list.map((t) => <li class:list={['chip', t.startsWith('TODO') && 'is-todo']}>{!t.startsWith('TODO') && <span class:list={['dot', tint]}></span>}{t}</li>)}
+    <RunningHead num="06" title="Credits" swatch="sky" />
+    <div class="grid open">
+      <h2 id="tools-title" class="t-headline open__h" data-reveal>The software, <em>for the record:</em></h2>
+    </div>
+    <div class="grid credits">
+      {Object.entries(tools).map(([group, list]) => (
+        <div class:list={['credit', group === 'Ops' && 'credit--wide']} data-reveal>
+          <p class="t-label credit__h">{group}</p>
+          <ul>
+            {list.map((t) => <li class:list={[t.startsWith('TODO') && 'tbd']}>{t.startsWith('TODO') ? 'More to come' : t}</li>)}
           </ul>
         </div>
-      ); })}
+      ))}
     </div>
+    <p class="t-caption logos">Logos to come.</p>
   </div>
 </section>
 <style>
-  .h2 { font-size: clamp(36px, 4.6vw, 72px); }
-  .groups { display: grid; gap: 40px; margin-top: clamp(40px, 5vw, 64px); }
-  @media (min-width: 900px) { .groups { grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; } }
-  .group__name { margin: 0 0 12px; font-size: 30px; color: var(--accent-text); }
-  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
-  .chip { padding: 9px 16px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px; background: var(--card); font-size: 15px; font-weight: 600; }
-  .chip.is-todo { background: transparent; border: 1px dashed var(--ink); font-family: ui-monospace, Menlo, monospace; font-size: 13px; box-shadow: none; }
+  em { font-style: italic; }
+  .open { margin-top: clamp(48px, 6vw, 88px); }
+  @media (min-width: 900px) { .open__h { grid-column: 1 / span 9; } }
+  .credits { margin-top: clamp(48px, 6vw, 80px); row-gap: 40px; }
+  .credit__h { color: var(--ink); padding-bottom: 10px; border-bottom: 1px solid var(--ink); }
+  .credit ul { list-style: none; margin: 0; padding: 0; }
+  .credit li { padding: 10px 0; border-bottom: 1px solid var(--line); font-size: clamp(18px, 1.5vw, 22px); }
+  @media (min-width: 900px) {
+    .credit { grid-column: span 3; }
+    .credit--wide { grid-column: span 6; }
+    .credit--wide ul { columns: 2; column-gap: var(--col-gap); }
+    .credit--wide li { break-inside: avoid; }
+  }
+  .logos { margin-top: 24px; }
 </style>

@@ -131,6 +131,7 @@ A few personal, human touches, then **one clear invite to meet** with a booking 
 > - **Typography: one family, Bodoni Moda (variable, optical sizes).** Inspired by a Vogue-style spread ("The way *she* wears it"): heavy high-contrast Didone headlines, tightly stacked staggered lines, one or two *italic* words, italic decks with NAMES IN CAPS, tiny spaced-caps credit labels. Only the typography was borrowed, not that spread's design or colours. Inter Tight, DM Serif Display and Caveat are retired.
 > - **Name:** Danielle Sellado is her full name; Dione / Dioné is the nickname and brand. Show both.
 > - **Photo:** Dione will shoot a portrait in that spirit (seated, light gray studio). The hero has a slot for it.
+> - **Layout is a magazine, not a template:** 12-column grid, a running head on every spread (No. 0X · title · Danielle Sellado), hairline rules, image plates with numbered captions, a different composition per spread. No pills, chips, highlighter bars, dashed boxes or résumé cards. Buttons are underlined text links.
 > - No hand-drawn notes or tilted cards. The pink scribble heart stays as the signature.
 > - Live tokens are in `src/styles/global.css`. The palette and type below are the **old** brand, kept for reference.
 

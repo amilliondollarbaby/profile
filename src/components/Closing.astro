@@ -1,60 +1,78 @@
 ---
+import RunningHead from './RunningHead.astro';
 import Logo from './Logo.astro';
-import Todo from './Todo.astro';
 import { profiles, site } from '../data/content';
-const marquee = Array.from({ length: 6 }, () => "Let’s work");
+const words = Array.from({ length: 6 }, () => 'Let’s work');
+const sw = ['pink', 'purple', 'yellow', 'sky'];
 ---
-<section id="contact" class="closing section grain" aria-labelledby="contact-title">
+<section id="contact" class="spread closing" aria-labelledby="contact-title">
+  <div class="wrap">
+    <RunningHead num="08" title="Let’s meet" swatch="yellow" />
+  </div>
+
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track">
       {[0, 1].map(() => (
-        <span class="marquee__set">{marquee.map((m) => <span>{m} <span class="dash" aria-hidden="true"></span></span>)}</span>
+        <span class="marquee__set">{words.map((w, i) => <span>{i % 2 ? <em>{w}</em> : w}<span class:list={['swatch', `sw-${sw[i % 4]}`]}></span></span>)}</span>
       ))}
     </div>
   </div>
 
   <div class="wrap">
-    <span class="label">Let’s meet (08)</span>
-    <h2 id="contact-title" class="display h2">Got a business that needs<br /><span class="serif-i"><span class="hl hl--yellow">both sides running?</span></span></h2>
-    <p class="lede">[DRAFT] Tell me what’s on your plate. We’ll see if I’m the right fit.</p>
-    <Todo tag="closing copy" class="closing__todo">a few personal touches, when Dione’s ready to share</Todo>
-
-    <div class="cta">
-      <a class="pill pill--solid big" href={site.bookingUrl || '#'} aria-disabled={site.bookingUrl ? undefined : 'true'}>
-        Book a call {!site.bookingUrl && <span class="mono">(TODO: link)</span>}
-      </a>
+    <div class="grid invite">
+      <h2 id="contact-title" class="t-headline invite__h" data-reveal>Got a business that needs <em>both sides running?</em></h2>
+      <div class="invite__side" data-reveal>
+        <p class="t-deck"><span class="tbd">[Draft]</span> Tell me what’s on your plate. We’ll see if I’m the right fit.</p>
+        <p class="t-caption tbd">A few personal touches, when Dione is ready to share.</p>
+        <a class="link link--big" href={site.bookingUrl || '#contact'}>Book a call <span aria-hidden="true">→</span></a>
+        {!site.bookingUrl && <p class="t-caption">Booking link to come.</p>}
+      </div>
     </div>
 
-    <footer class="foot">
-      <Logo size={36} />
-      <ul class="links">
-        {profiles.map((p) => <li>{p.url ? <a href={p.url} rel="noopener" target="_blank">{p.label} ↗</a> : <span class="mono">{p.label}: TODO</span>}</li>)}
-        <li>{site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : <span class="mono">email: TODO</span>}</li>
-      </ul>
-      <span class="label">© {new Date().getFullYear()} {site.fullName}</span>
+    <footer class="grid colophon">
+      <div class="col">
+        <p class="t-label">Contact</p>
+        <p>{site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : <span class="tbd">Email to come</span>}</p>
+      </div>
+      <div class="col">
+        <p class="t-label">Elsewhere</p>
+        <ul>{profiles.map((p) => <li>{p.url ? <a href={p.url} rel="noopener" target="_blank">{p.label} ↗</a> : <span class="tbd">{p.label}, link to come</span>}</li>)}</ul>
+      </div>
+      <div class="col">
+        <p class="t-label">Based</p>
+        <p>Davao, Philippines<br /><em>Working U.S. hours</em></p>
+      </div>
+      <div class="col">
+        <p class="t-label">Colophon</p>
+        <p><em>Set in Bodoni Moda.</em></p>
+      </div>
+      <div class="sign">
+        <Logo size={56} />
+        <p class="t-label">© {new Date().getFullYear()} {site.fullName}</p>
+      </div>
     </footer>
   </div>
 </section>
 <style>
-  .closing { padding-top: 0; overflow: hidden; }
-  .marquee { overflow: hidden; padding-block: clamp(40px, 6vw, 80px); border-bottom: 1px solid var(--line); margin-bottom: clamp(64px, 8vw, 120px); }
-  .marquee__track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
-  .marquee__set { display: flex; font-size: clamp(56px, 9vw, 150px); font-weight: 600; letter-spacing: -0.035em; line-height: 1; white-space: nowrap; }
-  .marquee__set > span { display: inline-flex; align-items: center; }
-  .dash { display: inline-block; width: 0.9em; height: 0.28em; margin-left: 0.35em; border-radius: 999px; }
-  .marquee__set > span:nth-child(4n + 1) .dash { background: var(--cc-pink); }
-  .marquee__set > span:nth-child(4n + 2) .dash { background: var(--cc-purple); }
-  .marquee__set > span:nth-child(4n + 3) .dash { background: var(--cc-yellow); }
-  .marquee__set > span:nth-child(4n + 4) .dash { background: var(--cc-sky); }
-  .marquee__set > span { padding-right: 0.35em; }
+  em { font-style: italic; }
+  .closing { padding-bottom: 40px; overflow: hidden; }
+  .marquee { overflow: hidden; margin-top: clamp(40px, 5vw, 72px); padding-block: 8px 24px; border-bottom: 1px solid var(--line); }
+  .marquee__track { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+  .marquee__set { display: flex; font-size: clamp(64px, 10vw, 168px); font-weight: 800; letter-spacing: -0.035em; line-height: 1; white-space: nowrap; }
+  .marquee__set > span { display: inline-flex; align-items: center; gap: 0.3em; padding-right: 0.3em; }
+  .marquee__set em { font-weight: 500; }
+  .marquee .swatch { width: 0.2em; height: 0.2em; }
   @keyframes marquee { to { transform: translateX(-50%); } }
-  .h2 { margin-top: 24px; font-size: clamp(40px, 6vw, 96px); }
-  .lede { margin-top: 24px; }
-  :global(.closing__todo) { margin-top: 24px; max-width: 520px; }
-  .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; margin-top: 40px; }
-  .big { padding: 18px 30px; font-size: 18px; }
-  .foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; margin-top: clamp(80px, 10vw, 140px); padding-top: 32px; border-top: 1px solid var(--line); }
-  .links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 0; padding: 0; list-style: none; font-weight: 600; }
-  .links a { text-decoration: none; }
-  .links a:hover { color: var(--accent-text); }
+
+  .invite { margin-top: clamp(64px, 8vw, 120px); row-gap: 40px; align-items: end; }
+  .invite__side { display: grid; gap: 20px; justify-items: start; }
+  @media (min-width: 900px) { .invite__h { grid-column: 1 / span 7; } .invite__side { grid-column: 9 / -1; } }
+
+  .colophon { margin-top: clamp(96px, 10vw, 160px); padding-top: 20px; border-top: 1px solid var(--ink); row-gap: 32px; }
+  .col { grid-column: span 6; }
+  .col p, .col ul { margin: 8px 0 0; }
+  .col ul { list-style: none; padding: 0; }
+  .col a { text-decoration: none; border-bottom: 1px solid var(--line); }
+  @media (min-width: 900px) { .col { grid-column: span 3; } }
+  .sign { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
 </style>

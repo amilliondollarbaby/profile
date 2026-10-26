@@ -5,24 +5,26 @@
 :root {
   /* Light gray studio + cotton candy accents (rebrand, Oct 2026). */
   --paper: #ebebe9;
-  --card: #f7f7f6;
+  --paper-deep: #dfdfdc; /* image plates waiting for photos */
+  --card: #f6f6f4;
   --ink: #141414;
-  --body-ink: #3a3a3a;
-  --muted: #6b6b6b;
-  --line: rgba(20, 20, 20, 0.14);
+  --body-ink: #333333;
+  --muted: #6d6d6d;
+  --line: rgba(20, 20, 20, 0.16);
   --cc-pink: #fad4e4;
   --cc-purple: #e4daf8;
   --cc-yellow: #fcf0b4;
   --cc-sky: #d2e8fb;
   --heart: #e0216f; /* the scribble heart only */
-  --accent-text: #b8175a; /* serif accents, readable on white and every pastel */
+  --accent-text: #b8175a;
 
   --serif: 'Bodoni Moda Variable', 'Bodoni 72', Didot, Georgia, serif;
 
-  /* One outer margin everywhere. 80px on desktop, like the 1080px carousels. */
+  /* Grid: 12 columns, one outer margin everywhere (80px on desktop). */
   --gutter: clamp(20px, 5.5vw, 80px);
+  --col-gap: clamp(16px, 2vw, 28px);
   --max: 1440px;
-  --nav-h: 72px;
+  --nav-h: 64px;
 }
 
 *,
@@ -40,10 +42,10 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 18px;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
+  font-size: 17px;
+  line-height: 1.6;
   font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
 }
 
 img,
@@ -61,16 +63,13 @@ button {
   color: inherit;
 }
 
-:focus-visible {
-  outline: 3px solid var(--heart);
-  outline-offset: 3px;
+::selection {
+  background: var(--cc-pink);
 }
 
-.wrap {
-  width: 100%;
-  max-width: var(--max);
-  margin-inline: auto;
-  padding-inline: var(--gutter);
+:focus-visible {
+  outline: 2px solid var(--heart);
+  outline-offset: 3px;
 }
 
 .sr-only {
@@ -82,165 +81,144 @@ button {
   white-space: nowrap;
 }
 
-/* Sections sit on light gray, divided by a hairline. Pastels are small accents only. */
-.section {
+/* ---------- Grid ---------- */
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+}
+.grid > :where(*) {
+  grid-column: 1 / -1;
+}
+
+/* ---------- Spreads ---------- */
+.spread {
   position: relative;
-  padding-block: clamp(88px, 12vw, 160px);
+  padding-block: clamp(28px, 3vw, 40px) clamp(96px, 11vw, 168px);
   scroll-margin-top: var(--nav-h);
-  background: var(--paper);
-}
-.section + .section {
-  border-top: 1px solid var(--line);
 }
 
-/* Cotton candy accents */
-.hl {
-  padding: 0 0.12em;
-  background: linear-gradient(transparent 55%, var(--hl, var(--cc-pink)) 55% 92%, transparent 92%);
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-.hl--pink { --hl: var(--cc-pink); }
-.hl--purple { --hl: var(--cc-purple); }
-.hl--yellow { --hl: var(--cc-yellow); }
-.hl--sky { --hl: var(--cc-sky); }
-.dot {
-  display: inline-block;
-  width: 0.6em;
-  height: 0.6em;
-  border-radius: 50%;
-  background: var(--dot, var(--cc-pink));
-  flex: none;
-}
-.dot--pink { --dot: var(--cc-pink); }
-.dot--purple { --dot: var(--cc-purple); }
-.dot--yellow { --dot: var(--cc-yellow); }
-.dot--sky { --dot: var(--cc-sky); }
-
-/* Film grain. SVG feTurbulence tinted like the carousels, no blend mode so colours stay true. */
-.grain::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.18 0 0 0 0 0.1 0 0 0 0 0.3 0 0 0 0.55 -0.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
-  opacity: 0.14;
-}
-.grain > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Type */
-.display {
+/* ---------- Type scale ---------- */
+.t-display {
   margin: 0;
   font-weight: 800;
+  font-size: clamp(52px, 9vw, 160px);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+}
+.t-headline {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(40px, 5.6vw, 92px);
+  line-height: 0.92;
   letter-spacing: -0.03em;
-  line-height: 0.88;
 }
-.serif-i {
+.t-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+.t-deck {
+  margin: 0;
   font-style: italic;
-}
-/* Margin notes: small italic, like a magazine caption. */
-.hand {
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.2;
-}
-/* Credit-line labels: tiny spaced caps. */
-.label {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.mono {
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-}
-.lede {
-  max-width: 34em;
-  font-size: clamp(18px, 1.5vw, 21px);
-  font-style: italic;
-  line-height: 1.45;
+  font-size: clamp(19px, 1.7vw, 25px);
+  line-height: 1.35;
   color: var(--body-ink);
 }
-.lede b,
+.t-deck b,
 .caps {
   font-style: normal;
   font-weight: 600;
-  font-size: 0.86em;
-  letter-spacing: 0.06em;
+  font-size: 0.84em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
-
-/* Pills */
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 11px 20px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
+.t-body {
+  margin: 0;
+  max-width: 34em;
+  color: var(--body-ink);
 }
-.pill--solid {
-  background: var(--ink);
-  color: var(--paper);
-}
-.pill--line {
-  border: 1.5px solid currentColor;
-}
-
-/* Clearly marked placeholder for content Dione still has to send. */
-.todo {
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 6px;
-  padding: 24px;
-  border: 1.5px dashed rgba(23, 21, 28, 0.28);
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.5);
+.t-caption {
+  margin: 0;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.45;
   color: var(--muted);
-  text-align: center;
 }
-.todo__tag {
-  font-family: ui-monospace, Menlo, monospace;
-  font-size: 12px;
-  letter-spacing: 0.08em;
+.t-label {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: var(--muted);
 }
 
-/* Horizontal swipe row (native scroll-snap, works with touch and trackpads). */
-.rail {
-  display: grid;
-  grid-auto-flow: column;
-  gap: 24px;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  padding-block: 24px 32px;
-  --rail-edge: max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));
-  padding-inline: var(--rail-edge);
-  scroll-padding-inline: var(--rail-edge);
-  scrollbar-width: thin;
-  scrollbar-color: var(--line) transparent;
-}
-.rail > * {
-  scroll-snap-align: start;
+/* Placeholder copy waiting on Dione: quiet italic, clearly marked. */
+.tbd {
+  font-style: italic;
+  color: var(--muted);
 }
 
-/* Reveal on scroll. Only hidden when JS + motion are allowed. */
+/* ---------- Rules ---------- */
+.rule {
+  height: 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+.rule--ink {
+  border-top-color: var(--ink);
+}
+
+/* ---------- Cotton candy accents ---------- */
+.swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--sw, var(--cc-pink));
+  flex: none;
+}
+.sw-pink { --sw: var(--cc-pink); }
+.sw-purple { --sw: var(--cc-purple); }
+.sw-yellow { --sw: var(--cc-yellow); }
+.sw-sky { --sw: var(--cc-sky); }
+
+/* ---------- Links that act as buttons: underlined text, no pills ---------- */
+.link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+.link:hover {
+  opacity: 0.6;
+}
+.link--big {
+  font-size: clamp(28px, 3.4vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  border-bottom-width: 2px;
+}
+
+/* ---------- Reveal on scroll (only when JS + motion are allowed) ---------- */
 .js-motion [data-reveal] {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(24px);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,23 +1,25 @@
 ---
+import Heart from './Heart.astro';
 import { statement } from '../data/content';
 ---
-<!-- Approved copy, word for word. A full-screen pause before the creative work. -->
-<section id="statement" class="statement section grain" aria-label="Statement">
-  <div class="wrap">
-    <span class="label statement__num">(03)</span>
-    <p class="display statement__text">
-      <span data-statement-line>{statement[0]}</span>
-      <span data-statement-line class="serif-i"><span class="hl hl--sky">{statement[1]}</span></span>
-      <span data-statement-line class="small">{statement[2]}</span>
+<!-- Approved copy, word for word. A full-page pause before the creative work. -->
+<section id="statement" class="statement" aria-label="Statement">
+  <div class="wrap statement__inner">
+    <p class="t-label"><span class="swatch sw-sky" aria-hidden="true"></span> No. 03</p>
+    <p class="statement__text">
+      <span class="t-display" data-statement-line>{statement[0]}</span>
+      <span class="t-display it" data-statement-line>{statement[1]}</span>
+      <span class="t-deck small" data-statement-line>{statement[2]}</span>
     </p>
-    <svg class="statement__heart" aria-hidden="true" width="64" height="58" viewBox="0 0 48 44" fill="none" stroke="var(--heart)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M24 40 C 10 30, 2 20, 6 11 C 10 3, 20 4, 24 13 C 28 4, 38 3, 42 11 C 46 20, 38 30, 24 40 C 19 33, 13 25, 16 17 C 18 12, 23 14, 22 19"/></svg>
+    <Heart size={44} class="statement__heart" />
   </div>
 </section>
 <style>
-  .statement { min-height: 100svh; display: grid; align-items: center; }
-  .statement__num { display: block; margin-bottom: 32px; }
-  .statement__text { font-size: clamp(40px, 7vw, 120px); max-width: 16ch; }
-  .statement__text span { display: block; }
-  .small { font-size: 0.42em; line-height: 1.15; letter-spacing: -0.03em; max-width: 24ch; margin-top: 0.6em; color: var(--body-ink); }
-  .statement__heart { margin-top: 48px; }
+  .statement { min-height: 100svh; display: grid; align-items: center; padding-block: 120px; border-block: 1px solid var(--line); }
+  .statement__inner { display: grid; justify-items: center; text-align: center; gap: clamp(32px, 4vw, 56px); }
+  .t-label { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); }
+  .statement__text { margin: 0; display: grid; gap: 0.1em; }
+  .statement__text .t-display { display: block; font-size: min(8.6vw, 140px); }
+  .it { font-style: italic; }
+  .small { display: block; max-width: 22em; margin: 1.6em auto 0; }
 </style>

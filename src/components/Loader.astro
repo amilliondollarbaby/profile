@@ -5,7 +5,7 @@ import Heart from './Heart.astro';
 <div class="loader" id="loader" aria-hidden="true">
   <Heart size={120} class="loader__heart" />
   <div class="loader__row">
-    <span class="serif-i">Dioné</span>
+    <span class="loader__word">Dioné</span>
     <span class="loader__pct"><span id="loader-pct">0</span>%</span>
   </div>
 </div>
@@ -18,7 +18,7 @@ import Heart from './Heart.astro';
   }
   :global(.js-motion:not(.skip-loader)) .loader { display: grid; }
   .loader__row { display: flex; align-items: baseline; gap: 18px; font-size: 22px; }
-  .loader__row .serif-i { font-size: 36px; }
-  .loader__pct { font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 3.5ch; }
+  .loader__word { font-size: 36px; font-style: italic; font-weight: 600; }
+  .loader__pct { font-size: 13px; letter-spacing: 0.2em; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 3.5ch; }
   .loader :global(.loader__heart path) { stroke-dasharray: 1; stroke-dashoffset: 1; }
 </style>

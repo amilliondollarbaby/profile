@@ -125,7 +125,7 @@ A few personal, human touches, then **one clear invite to meet** with a booking 
 
 ## 4. Brand and design direction
 
-> **Rebrand, Oct 26 2026 (Dione's call):** lighter and more editorial. **Gallery white + cotton candy pastels as accents only** (pastel pink, purple, yellow, sky blue): highlights behind serif words, cards, chips, small touches. Never full pastel sections. Text is near-black ink. The pink scribble heart stays as the signature. Hand-drawn notes are toned down; cards sit straight. Headlines lighter (Inter Tight 600). Live tokens are in `src/styles/global.css`. The palette table below is the **old** brand, kept for reference.
+> **Rebrand, Oct 26 2026 (Dione's call):** lighter and more editorial. **Light gray editorial background (#EFEEEB) + cotton candy pastels as small accents only** (pastel pink, purple, yellow, sky blue): highlights behind serif words, dots, dashes, thin rules. Never pastel cards or sections; cards are white. Text is near-black ink. The pink scribble heart stays as the signature. Hand-drawn notes are toned down; cards sit straight. Headlines lighter (Inter Tight 600). Live tokens are in `src/styles/global.css`. The palette table below is the **old** brand, kept for reference.
 
 ### Colors
 | Token | Hex | Use |

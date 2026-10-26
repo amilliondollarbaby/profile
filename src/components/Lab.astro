@@ -13,7 +13,7 @@ import Todo from './Todo.astro';
   <div class="rail lab">
     {[1, 2, 3, 4, 5].map((n) => (
       <article class="piece">
-        <Todo tag={`3D render 0${n}`} class={`piece__art tint--${['sky', 'purple', 'pink', 'yellow', 'sky'][n - 1]}`}>waiting on Dione’s renders</Todo>
+        <Todo tag={`3D render 0${n}`} class="piece__art">waiting on Dione’s renders</Todo>
         <p class="mono piece__id">DIONÉ–LAB–0{n} · STATUS: IN PROGRESS</p>
         <p class="piece__why"><span class="hand">why I made this:</span> <span class="mono">TODO</span></p>
       </article>

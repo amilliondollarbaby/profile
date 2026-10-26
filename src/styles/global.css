@@ -7,8 +7,9 @@
 @import '@fontsource/caveat/700.css';
 
 :root {
-  /* Gallery white + cotton candy pastels (rebrand, Oct 2026). */
-  --paper: #ffffff;
+  /* Light gray editorial + cotton candy accents (rebrand, Oct 2026). */
+  --paper: #efeeeb;
+  --card: #ffffff;
   --ink: #17151c;
   --body-ink: #3e3a45;
   --muted: #6e6a75;
@@ -86,7 +87,7 @@ button {
   white-space: nowrap;
 }
 
-/* Sections are gallery white, divided by a hairline. Pastels are accents only. */
+/* Sections sit on light gray, divided by a hairline. Pastels are small accents only. */
 .section {
   position: relative;
   padding-block: clamp(88px, 12vw, 160px);
@@ -108,10 +109,18 @@ button {
 .hl--purple { --hl: var(--cc-purple); }
 .hl--yellow { --hl: var(--cc-yellow); }
 .hl--sky { --hl: var(--cc-sky); }
-.tint--pink { background: var(--cc-pink); }
-.tint--purple { background: var(--cc-purple); }
-.tint--yellow { background: var(--cc-yellow); }
-.tint--sky { background: var(--cc-sky); }
+.dot {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  background: var(--dot, var(--cc-pink));
+  flex: none;
+}
+.dot--pink { --dot: var(--cc-pink); }
+.dot--purple { --dot: var(--cc-purple); }
+.dot--yellow { --dot: var(--cc-yellow); }
+.dot--sky { --dot: var(--cc-sky); }
 
 /* Film grain. SVG feTurbulence tinted like the carousels, no blend mode so colours stay true. */
 .grain::after {
@@ -190,7 +199,7 @@ button {
   padding: 24px;
   border: 1.5px dashed rgba(23, 21, 28, 0.28);
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.5);
   color: var(--muted);
   text-align: center;
 }

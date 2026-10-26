@@ -7,11 +7,11 @@ import { tools } from '../data/content';
     <SectionHead num="06" label="Tools" note="logos: TODO" />
     <h2 id="tools-title" class="display h2" data-reveal>The software, <span class="serif-i"><span class="hl hl--sky">for the record:</span></span></h2>
     <div class="groups">
-      {Object.entries(tools).map(([group, list], g) => { const tint = `tint--${['purple', 'pink', 'sky'][g]}`; return (
+      {Object.entries(tools).map(([group, list], g) => { const tint = `dot--${['purple', 'pink', 'sky'][g]}`; return (
         <div class="group" data-reveal>
           <h3 class="hand group__name">{group}</h3>
           <ul class="chips">
-            {list.map((t) => <li class:list={['chip', t.startsWith('TODO') ? 'is-todo' : tint]}>{t}</li>)}
+            {list.map((t) => <li class:list={['chip', t.startsWith('TODO') && 'is-todo']}>{!t.startsWith('TODO') && <span class:list={['dot', tint]}></span>}{t}</li>)}
           </ul>
         </div>
       ); })}
@@ -24,6 +24,6 @@ import { tools } from '../data/content';
   @media (min-width: 900px) { .groups { grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; } }
   .group__name { margin: 0 0 12px; font-size: 36px; color: var(--accent-text); transform: rotate(-2deg); transform-origin: left; }
   .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
-  .chip { padding: 9px 16px; border-radius: 999px; font-size: 15px; font-weight: 600; }
+  .chip { padding: 9px 16px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px; background: var(--card); font-size: 15px; font-weight: 600; }
   .chip.is-todo { background: transparent; border: 1px dashed var(--ink); font-family: ui-monospace, Menlo, monospace; font-size: 13px; box-shadow: none; }
 </style>

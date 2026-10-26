@@ -3,12 +3,12 @@ import SectionHead from './SectionHead.astro';
 import Todo from './Todo.astro';
 import { modules, principles, stats, testimonials } from '../data/content';
 ---
-<section id="partnership" class="section section--light grain" aria-labelledby="partnership-title">
+<section id="partnership" class="section grain" aria-labelledby="partnership-title">
   <div class="wrap">
     <SectionHead num="02" label="Executive partnership" />
     <div class="intro">
       <h2 id="partnership-title" class="display h2" data-reveal>
-        Trusted with the business,<br /><span class="serif-i accent">not just the inbox.</span>
+        Trusted with the business,<br /><span class="serif-i"><span class="hl hl--purple">not just the inbox.</span></span>
       </h2>
       <p class="lede" data-reveal>[DRAFT] Planning, strategic brainstorming, confidential client work, and the systems teams run on.</p>
     </div>
@@ -23,7 +23,7 @@ import { modules, principles, stats, testimonials } from '../data/content';
   <h3 class="sr-only">Engagements</h3>
   <div class="rail modules" role="list" aria-label="Engagements">
     {modules.map((m, i) => (
-      <article class="module" role="listitem" style={`--tilt:${i % 2 ? 1.2 : -1}deg`}>
+      <article class:list={['module', `tint--${['purple', 'sky', 'pink', 'yellow'][i % 4]}`]} role="listitem">
         <header class="module__bar mono">
           <span>{m.id}</span>
           <span class:list={['status', m.status === 'ACTIVE' && 'is-active']}>● STATUS: {m.status}</span>
@@ -59,19 +59,18 @@ import { modules, principles, stats, testimonials } from '../data/content';
 <style>
   .intro { display: grid; gap: 24px 64px; align-items: end; }
   .h2 { font-size: clamp(40px, 6vw, 96px); }
-  .accent { color: var(--pink-deep); }
   @media (min-width: 900px) { .intro { grid-template-columns: 1.4fr 1fr; } }
 
-  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 24px; margin: clamp(56px, 7vw, 96px) 0 0; padding-top: 32px; border-top: 1.5px solid rgba(45, 27, 78, 0.15); }
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 24px; margin: clamp(56px, 7vw, 96px) 0 0; padding-top: 32px; border-top: 1px solid var(--line); }
   .stat { margin: 0; }
   .stat dd { margin: 4px 0 0; font-size: clamp(44px, 5.5vw, 80px); }
   @media (min-width: 760px) { .stats { grid-template-columns: repeat(4, 1fr); } }
 
   .modules { grid-auto-columns: min(86vw, 400px); margin-top: clamp(48px, 6vw, 80px); }
-  .module { display: flex; flex-direction: column; padding: 24px; border-radius: 22px; background: var(--white); box-shadow: var(--shadow); transform: rotate(var(--tilt)); }
-  .module__bar { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 14px; margin-bottom: 20px; border-bottom: 1.5px dashed var(--lavender); color: var(--muted); }
-  .status.is-active { color: var(--pink-deep); }
-  .module__role { margin: 0; font-size: 26px; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; }
+  .module { display: flex; flex-direction: column; padding: 24px; border-radius: 4px; }
+  .module__bar { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 14px; margin-bottom: 20px; border-bottom: 1px solid var(--line); color: var(--muted); }
+  .status.is-active { color: var(--accent-text); }
+  .module__role { margin: 0; font-size: 26px; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
   .module__org { margin: 8px 0 18px; font-weight: 600; }
   .module__list { margin: 0; padding-left: 18px; color: var(--body-ink); font-size: 16px; }
   .module__list li + li { margin-top: 4px; }
@@ -79,8 +78,8 @@ import { modules, principles, stats, testimonials } from '../data/content';
   .sub { display: block; margin: clamp(56px, 7vw, 96px) 0 24px; }
   .principles, .quotes { display: grid; gap: 24px; }
   @media (min-width: 900px) { .principles, .quotes { grid-template-columns: repeat(3, 1fr); } }
-  .principle { margin: 0; padding: 28px; border-radius: 22px; background: var(--yellow); transform: rotate(-1.5deg); box-shadow: var(--shadow); }
-  .principle .note { display: block; font-size: 32px; color: var(--pink-deep); transform: rotate(-3deg); margin-bottom: 12px; }
-  .principle blockquote { margin: 0; font-size: 19px; font-weight: 600; line-height: 1.45; }
+  .principle { margin: 0; padding: 28px; border-radius: 4px; background: var(--cc-yellow); }
+  .principle .note { display: block; font-size: 32px; color: var(--accent-text); transform: rotate(-2deg); margin-bottom: 12px; }
+  .principle blockquote { margin: 0; font-family: var(--serif); font-size: 24px; line-height: 1.3; }
   .principles :global(.todo), .quote-slot { min-height: 200px; }
 </style>

@@ -14,11 +14,11 @@ import Heart from './Heart.astro';
     display: none;
     position: fixed; inset: 0; z-index: 100;
     place-items: center; align-content: center; gap: 28px;
-    background: var(--purple); color: var(--white);
+    background: var(--paper); color: var(--ink);
   }
   :global(.js-motion:not(.skip-loader)) .loader { display: grid; }
   .loader__row { display: flex; align-items: baseline; gap: 18px; font-size: 22px; }
   .loader__row .serif-i { font-size: 36px; }
-  .loader__pct { font-weight: 600; color: var(--lavender); font-variant-numeric: tabular-nums; min-width: 3.5ch; }
+  .loader__pct { font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 3.5ch; }
   .loader :global(.loader__heart path) { stroke-dasharray: 1; stroke-dashoffset: 1; }
 </style>

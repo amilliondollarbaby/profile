@@ -31,22 +31,13 @@ function initTabs() {
   select(tabs[0]);
 }
 
-// ---------- Nav colour follows the section underneath ----------
+// ---------- Nav gets a white backing once the page scrolls ----------
 function initNav() {
   const nav = document.getElementById('nav');
   if (!nav) return;
-  document.querySelectorAll<HTMLElement>('main > section').forEach((s) => {
-    const dark = s.classList.contains('section--dark');
-    ScrollTrigger.create({
-      trigger: s,
-      start: 'top top+=36',
-      end: 'bottom top+=36',
-      onToggle: (self) => {
-        if (!self.isActive) return;
-        nav.classList.toggle('is-dark', dark && s.id !== 'intro');
-        nav.classList.toggle('is-light', !dark);
-      },
-    });
+  ScrollTrigger.create({
+    start: 'top -10',
+    onToggle: (self) => nav.classList.toggle('is-scrolled', self.isActive),
   });
 }
 

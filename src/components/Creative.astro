@@ -5,15 +5,15 @@ import Logo from './Logo.astro';
 import { creativeTabs } from '../data/content';
 
 const swatches = [
-  ['--purple', '#2D1B4E'], ['--yellow', '#F4C542'], ['--pink', '#E0216F'],
-  ['--lavender', '#CDBFE6'], ['--blush', '#F7C6D9'], ['--lilac-bg', '#F3EEF9'],
+  ['ink', '#17151C'], ['pink', '#FAD4E4'], ['purple', '#E4DAF8'],
+  ['yellow', '#FCF0B4'], ['sky', '#D2E8FB'], ['heart', '#E0216F'],
 ];
 ---
-<section id="creative" class="section section--white grain" aria-labelledby="creative-title">
+<section id="creative" class="section grain" aria-labelledby="creative-title">
   <div class="wrap">
     <SectionHead num="04" label="Socials & creative" />
     <div class="intro">
-      <h2 id="creative-title" class="display h2" data-reveal>Built to be <span class="serif-i accent">sent.</span></h2>
+      <h2 id="creative-title" class="display h2" data-reveal>Built to be <span class="serif-i"><span class="hl hl--yellow">seen.</span></span></h2>
       <p class="lede" data-reveal>[DRAFT] Graphics, designs, motion and reels. Each one with the thinking behind it.</p>
     </div>
 
@@ -70,12 +70,11 @@ const swatches = [
 <style>
   .intro { display: grid; gap: 24px 64px; align-items: end; }
   .h2 { font-size: clamp(40px, 6vw, 96px); }
-  .accent { color: var(--pink-deep); }
   @media (min-width: 900px) { .intro { grid-template-columns: 1.4fr 1fr; } }
 
   .tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(40px, 5vw, 64px); }
-  .tab { padding: 10px 18px; border: 1.5px solid var(--purple); border-radius: 999px; background: transparent; font-size: 15px; font-weight: 600; cursor: pointer; }
-  .tab[aria-selected='true'] { background: var(--purple); color: var(--white); }
+  .tab { padding: 10px 18px; border: 1px solid var(--ink); border-radius: 999px; background: transparent; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .tab[aria-selected='true'] { background: var(--ink); color: var(--paper); }
   .tab__count { opacity: 0.6; font-variant-numeric: tabular-nums; }
   .panel { margin-top: 16px; }
   .panel[hidden] { display: none; }
@@ -84,11 +83,11 @@ const swatches = [
   .cards { grid-auto-columns: min(80vw, 380px); padding-block: 32px 40px; }
   .card { display: flex; flex-direction: column; }
   .card :global(.card__todo) { aspect-ratio: 4 / 5; }
-  .brand__art { aspect-ratio: 4 / 5; display: grid; align-content: space-between; padding: 28px; border-radius: 20px; background: var(--lilac-bg); box-shadow: var(--shadow); transform: rotate(-1deg); }
+  .brand__art { aspect-ratio: 4 / 5; display: grid; align-content: space-between; padding: 28px; border-radius: 4px; background: var(--cc-purple); }
   .brand__type { display: flex; align-items: baseline; gap: 18px; font-size: 64px; }
-  .brand__type .hand { color: var(--pink-deep); }
+  .brand__type .hand { color: var(--accent-text); }
   .brand__swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
-  .brand__swatches span { aspect-ratio: 1; border-radius: 50%; border: 1.5px solid rgba(45, 27, 78, 0.12); }
+  .brand__swatches span { aspect-ratio: 1; border-radius: 50%; border: 1px solid var(--line); }
   .card__ctx { margin: 14px 2px 0; font-size: 14px; font-weight: 600; color: var(--muted); }
 
   .wides { grid-auto-columns: min(86vw, 560px); padding-block: 32px 40px; }

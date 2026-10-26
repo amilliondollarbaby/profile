@@ -3,11 +3,11 @@ import SectionHead from './SectionHead.astro';
 import Todo from './Todo.astro';
 import { aiWorkflow } from '../data/content';
 ---
-<section id="ai" class="section section--dark grain" aria-labelledby="ai-title">
+<section id="ai" class="section grain" aria-labelledby="ai-title">
   <div class="wrap">
     <SectionHead num="05" label="AI workflows" />
     <div class="intro">
-      <h2 id="ai-title" class="display h2" data-reveal>More output.<br /><span class="serif-i yellow">Used responsibly.</span></h2>
+      <h2 id="ai-title" class="display h2" data-reveal>More output.<br /><span class="serif-i"><span class="hl hl--purple">Used responsibly.</span></span></h2>
       <div data-reveal>
         <p class="lede">[DRAFT] It started as a chat assistant. I named it Babbi and built it into a working content system.</p>
         <p class="hand note">the one that helped build this site&nbsp;♡</p>
@@ -33,15 +33,14 @@ import { aiWorkflow } from '../data/content';
 <style>
   .intro { display: grid; gap: 24px 64px; align-items: end; }
   .h2 { font-size: clamp(40px, 6vw, 96px); }
-  .yellow { color: var(--yellow); }
-  .note { margin: 12px 0 0; font-size: 30px; color: var(--yellow); transform: rotate(-3deg); transform-origin: left; }
+  .note { margin: 12px 0 0; font-size: 30px; color: var(--accent-text); transform: rotate(-3deg); transform-origin: left; }
   @media (min-width: 900px) { .intro { grid-template-columns: 1.4fr 1fr; } }
 
-  .flow { list-style: none; margin: clamp(56px, 7vw, 96px) 0 0; padding: 0; border-top: 1.5px solid rgba(205, 191, 230, 0.25); }
-  .step { display: grid; gap: 4px 32px; padding: 24px 0; border-bottom: 1.5px solid rgba(205, 191, 230, 0.25); }
-  .step__id { color: var(--lavender); opacity: 0.8; }
-  .step__name { font-size: clamp(28px, 3.4vw, 48px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
-  .step__detail { color: var(--lavender); }
+  .flow { list-style: none; margin: clamp(56px, 7vw, 96px) 0 0; padding: 0; border-top: 1px solid var(--line); }
+  .step { display: grid; gap: 4px 32px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+  .step__id { color: var(--muted); }
+  .step__name { font-size: clamp(28px, 3.4vw, 48px); font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
+  .step__detail { color: var(--body-ink); }
   .step__detail.is-todo { font-family: ui-monospace, Menlo, monospace; font-size: 14px; opacity: 0.7; }
   @media (min-width: 900px) { .step { grid-template-columns: 200px 1fr 1fr; align-items: center; } }
 

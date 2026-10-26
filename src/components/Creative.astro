@@ -15,7 +15,7 @@ const work = [
   { kind: 'Reel', n: '10', ratio: '9 / 16' },
 ];
 ---
-<!-- Work showcase: portrait on the studio floor, title split around it, work cards sliding across the middle. -->
+<!-- Work showcase: her photo centre stage, title split around it, work cards sliding across the middle. -->
 <section id="creative" class="spread showcase" aria-labelledby="creative-title">
   <div class="wrap">
     <RunningHead num="04" title="Socials & creative" swatch="yellow" />
@@ -40,7 +40,7 @@ const work = [
     </div>
 
     <figure class="portrait">
-      <div class="portrait__frame"><span class="t-label">Portrait · seated on the studio floor<br />Shoot to come</span></div>
+      <div class="portrait__frame"><span class="t-label">Photo · cutout of Dione<br />Shoot to come</span></div>
     </figure>
 
     <div class="strip" aria-label="Work">
@@ -59,7 +59,6 @@ const work = [
   </div>
 </section>
 <style>
-  em { font-style: italic; font-weight: 400; }
   .showcase { padding-bottom: 0; overflow: hidden; }
 
   .stage { position: relative; height: clamp(760px, 100svh, 1000px); margin-top: 8px; color: var(--ink); }
@@ -70,19 +69,21 @@ const work = [
   .mark--bl { bottom: 16px; left: var(--gutter); }
   .mark--br { bottom: 16px; right: var(--gutter); transform: scaleX(-1); }
 
-  .ttl { position: absolute; z-index: 3; top: 9%; margin: 0; font-size: clamp(64px, 10.5vw, 180px); white-space: nowrap; }
+  /* Two staggered rows: "Socials" top left, "& Creative" below it on the right. */
+  .stage { --s: clamp(48px, 7.6vw, 128px); }
+  .ttl { position: absolute; z-index: 3; top: 6%; margin: 0; font-size: var(--s); white-space: nowrap; }
   .ttl--l { left: var(--gutter); }
-  .ttl--r { right: var(--gutter); }
+  .ttl--r { right: var(--gutter); top: calc(6% + var(--s) * 0.95); }
 
-  .cred { position: absolute; z-index: 3; top: calc(9% + clamp(64px, 10.5vw, 180px) + 12px); display: grid; gap: 10px; color: var(--ink); }
+  .cred { position: absolute; z-index: 3; display: grid; gap: 10px; color: var(--ink); }
   .cred p { margin: 0; }
-  .cred--l { left: var(--gutter); }
-  .cred--r { right: var(--gutter); text-align: right; }
+  .cred--l { left: var(--gutter); top: calc(6% + var(--s) * 1.95 + 16px); }
+  .cred--r { right: var(--gutter); top: calc(6% + 10px); text-align: right; }
 
-  /* Portrait sits on the studio floor, centre stage, with a soft contact shadow. */
+  /* Her photo stands centre stage with a soft contact shadow. No frame. */
   .portrait { position: absolute; z-index: 1; left: 50%; bottom: 0; transform: translateX(-50%); margin: 0; width: min(38vw, 520px); height: 86%; }
   .portrait::after { content: ''; position: absolute; left: 6%; right: 6%; bottom: -18px; height: 36px; border-radius: 50%; background: radial-gradient(closest-side, rgba(90, 60, 120, 0.22), transparent); }
-  .portrait__frame { height: 100%; display: grid; place-items: end center; padding-bottom: 40px; text-align: center; background: var(--frame-fill); border: 1px solid var(--frame-line); border-radius: var(--radius); }
+  .portrait__frame { height: 100%; display: grid; place-items: end center; padding-bottom: 40px; text-align: center; background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0)); }
 
   .strip { position: absolute; z-index: 4; left: 0; right: 0; top: 50%; overflow: hidden; padding-block: 10px 24px; }
   .strip__track { display: flex; align-items: center; gap: 16px; width: max-content; margin: 0; padding: 0; list-style: none; animation: slide 46s linear infinite; }
@@ -90,8 +91,8 @@ const work = [
   @keyframes slide { to { transform: translateX(calc(-50% - 8px)); } }
 
   .card { position: relative; height: clamp(150px, 15vw, 230px); aspect-ratio: var(--ratio); border-radius: var(--radius); background: var(--frame-fill); border: 1px solid var(--frame-line); box-shadow: 0 18px 40px rgba(90, 60, 120, 0.14); display: grid; place-items: center; }
-  .card__tag { position: absolute; left: 14px; top: 10px; color: var(--ink); }
-  .card__tbd { font-style: italic; font-size: 14px; color: var(--muted); }
+  .card__tag { position: absolute; left: 14px; top: 10px; white-space: nowrap; color: var(--ink); }
+  .card__tbd { font-family: var(--script); font-size: 26px; color: var(--muted); }
 
   .foot { position: absolute; z-index: 3; bottom: 48px; margin: 0; color: var(--ink); }
   .foot--l { left: var(--gutter); }
@@ -99,10 +100,10 @@ const work = [
 
   @media (max-width: 899px) {
     .stage { height: 860px; }
-    .ttl { font-size: 17vw; }
+    .stage { --s: 11.4vw; }
     .ttl--l { top: 40px; }
-    .ttl--r { top: calc(40px + 17vw); }
-    .cred { top: calc(40px + 34vw + 20px); }
+    .ttl--r { top: calc(40px + var(--s) * 0.95); }
+    .cred--l { top: calc(40px + var(--s) * 1.95 + 16px); }
     .cred--r { display: none; }
     .portrait { width: 74vw; height: 64%; }
     .strip { top: 56%; }

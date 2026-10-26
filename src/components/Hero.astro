@@ -1,94 +1,88 @@
 ---
-import Plate from './Plate.astro';
 import { site } from '../data/content';
 ---
-<!-- Cover: floating photo frames on the pastel set, the main portrait in front, staggered headline. -->
+<!-- Cover, after the Calvin Klein reference: one main photo, the name in wide caps with
+     "Dioné" in script woven through, outlined pills, a ghost name behind, tiny cotton candy marks. -->
 <section id="intro" class="cover" aria-labelledby="hero-title">
-  <div class="wrap">
-    <div class="strap" data-reveal>
-      {site.positioning.map((p) => <p class="t-label">{p}</p>)}
-    </div>
-    <hr class="rule rule--ink" />
-  </div>
+  <div class="lines" aria-hidden="true"><span class="ln-h"></span><span class="ln-v"></span><span class="ring"></span></div>
+
+  <p class="ghost" aria-hidden="true"><span>Sellado</span><em>Dioné</em></p>
+
+  <span class="tick sw-pink mark-sq" aria-hidden="true"></span>
+  <p class="t-label corner">Davao, PH<br />Working U.S. hours</p>
 
   <div class="wrap stage">
+    <figure class="photo" data-reveal>
+      <span class="t-label">Main photo · cutout of Dione<br />Shoot to come</span>
+    </figure>
+
     <div class="copy">
-      <h1 id="hero-title" class="t-display title">
-        <span class="sr-only">{site.heroLine.join(' ')}</span>
+      <p class="pills" data-reveal>
+        <span class="pill"><span class="swatch sw-purple" aria-hidden="true"></span>Executive Assistant // 6+ years</span>
+      </p>
+      <h1 id="hero-title" class="lockup">
+        <span class="sr-only">Danielle Sellado, known as Dioné</span>
         <span aria-hidden="true">
-          <span class="ln" data-hero-line>Sharp enough</span>
-          <span class="ln in-a" data-hero-line>to run</span>
-          <span class="ln in-b" data-hero-line><em>the day.</em></span>
+          <span class="t-display row" data-hero-line>Danielle</span>
+          <span class="t-display row row--2" data-hero-line>Sellado</span>
+          <em class="nick" data-hero-line>Dioné</em>
         </span>
       </h1>
-      <p class="t-headline sub" aria-hidden="true">
-        <span class="ln" data-hero-line>Creative enough to turn</span>
-        <span class="ln in-c" data-hero-line>ideas into <em>execution.</em></span>
+      <p class="pills" data-reveal>
+        <span class="pill">Social media strategy // Creative operations</span>
       </p>
-      <p class="t-deck deck" data-reveal>
-        Executive Assistant to founders and leaders. <b>Danielle Sellado</b>, known as <b>Dioné</b>, runs the operations behind the business and the creative work in front of it.
-      </p>
-    </div>
 
-    <!-- Floating frames. Shapes from the reference: oval close-up, rounded rectangles, an empty pill. -->
-    <div class="collage" aria-hidden="true">
-      <Plate num="00" label="" caption="" shape="oval" ratio="3 / 4" class="f f-oval"><span class="t-label">Close-up</span></Plate>
-      <Plate num="00" label="" caption="" ratio="4 / 3" class="f f-a"><span class="t-label">Detail</span></Plate>
-      <Plate num="00" label="" caption="" ratio="3 / 4" class="f f-b"><span class="t-label">Pose</span></Plate>
-      <Plate num="00" label="" caption="" ratio="4 / 3" class="f f-c"><span class="t-label">Pose</span></Plate>
-      <Plate num="00" label="" caption="" shape="pill" ratio="3 / 1" class="f f-pill"><span></span></Plate>
-      <Plate num="00" label="" caption="" ratio="21 / 9" class="f f-main"><span class="t-label">Main portrait · lying on the studio bench · shoot to come</span></Plate>
+      <p class="t-headline line" data-reveal>
+        {site.heroLine[0]}<br />Creative enough to turn ideas into <em>execution.</em>
+      </p>
     </div>
   </div>
 
-  <div class="wrap">
-    <hr class="rule" />
-    <div class="foot">
-      <p class="t-label">Davao, PH · Working U.S. hours</p>
-      <a class="t-label foot__cue" href="#partnership">Scroll ↓</a>
-    </div>
+  <div class="wrap foot">
+    <a class="t-label cue" href="#partnership">Scroll ↓</a>
+    <span class="dash sw-sky" aria-hidden="true"></span>
   </div>
 </section>
 <style>
-  .cover { padding-top: calc(var(--nav-h) + 8px); padding-bottom: 28px; min-height: 100svh; display: flex; flex-direction: column; }
-  .strap { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 12px; }
-  .strap .t-label { color: var(--ink); }
+  .cover { position: relative; min-height: 100svh; padding-top: var(--nav-h); overflow: hidden; display: flex; flex-direction: column; }
 
-  .stage { position: relative; flex: 1; display: grid; gap: 40px; padding-block: clamp(28px, 4vw, 48px); }
-  .copy { position: relative; z-index: 3; }
-  .title { font-size: min(13vw, 150px); }
-  .sub { margin-top: 0.45em; font-size: min(6.2vw, 60px); }
-  .ln { display: block; white-space: nowrap; }
-  em { font-style: italic; }
-  .in-a { padding-left: 1.15em; }
-  .in-b { padding-left: 0.45em; }
-  .in-c { padding-left: 1.6em; }
-  .deck { max-width: 22em; margin-top: clamp(24px, 3vw, 40px); }
+  /* Thin construction lines and a ring behind the photo. */
+  .lines { position: absolute; inset: 0; pointer-events: none; }
+  .ln-h { position: absolute; left: 0; right: 0; top: calc(var(--nav-h) + 56px); border-top: 1px solid var(--line); }
+  .ln-v { position: absolute; top: 0; bottom: 0; left: calc(var(--gutter) - 24px); border-left: 1px solid var(--line); }
+  .ring { position: absolute; width: min(64vw, 620px); aspect-ratio: 1; border: 1px solid var(--line); border-radius: 50%; left: calc(var(--gutter) - 4vw); top: 16%; }
 
-  .collage { position: relative; height: 560px; }
-  .collage :global(.f) { position: absolute; }
-  .collage :global(.f .t-label) { color: var(--body-ink); text-align: center; padding: 0 12px; }
-  .collage :global(.f-oval) { left: 22%; top: 0; width: 46%; z-index: 1; }
-  .collage :global(.f-a) { left: 0; top: 30px; width: 30%; }
-  .collage :global(.f-b) { right: 0; top: 150px; width: 22%; }
-  .collage :global(.f-pill) { right: 4%; top: 20px; width: 26%; }
-  .collage :global(.f-main) { left: -4%; right: -4%; bottom: 0; z-index: 2; }
-  .collage :global(.f-c) { display: none; }
+  /* Ghost name, huge and faint, behind everything. */
+  .ghost { position: absolute; z-index: 0; left: 0; right: 0; bottom: -0.16em; margin: 0; text-align: center; font-size: min(24vw, 360px); font-weight: 800; font-stretch: 125%; text-transform: uppercase; line-height: 1; letter-spacing: -0.03em; color: rgba(28, 26, 31, 0.045); white-space: nowrap; pointer-events: none; }
+  .ghost em { position: absolute; left: 50%; top: 4%; transform: translateX(-30%) rotate(-6deg); font-family: var(--script); font-style: normal; font-weight: 400; font-stretch: 100%; text-transform: none; font-size: 0.8em; color: rgba(28, 26, 31, 0.06); }
+
+  .mark-sq { position: absolute; z-index: 2; left: var(--gutter); top: calc(var(--nav-h) + 76px); }
+  .corner { position: absolute; z-index: 2; right: var(--gutter); top: calc(var(--nav-h) + 16px); text-align: right; color: var(--ink); }
+
+  .stage { position: relative; z-index: 1; flex: 1; display: grid; gap: 32px; padding-top: 120px; }
+  .copy { position: relative; z-index: 3; order: -1; }
+  @media (max-width: 899px) { .pills .pill { white-space: normal; } .photo { min-height: 360px; } .nick { font-size: 21vw; left: 38%; top: 30%; } }
+
+  /* Placeholder for the cutout. No frame: just a soft glow where she will stand. */
+  .photo { position: relative; z-index: 2; margin: 0; min-height: 420px; display: grid; place-items: center; text-align: center; background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)); }
+  .photo .t-label { color: var(--body-ink); }
+
+  .pills { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .lockup { position: relative; margin: 18px 0; font-weight: 400; }
+  .row { display: block; }
+  .row--2 { padding-left: 0.9em; }
+  /* A paper-coloured halo lets the script cut through the caps, like the reference. */
+  .nick { position: absolute; left: 40%; top: 22%; font-family: var(--script); font-style: normal; font-size: min(24vw, 230px); line-height: 1; color: var(--ink); transform: rotate(-6deg); pointer-events: none; -webkit-text-stroke: 0.05em var(--paper); paint-order: stroke fill; }
+  .line { max-width: 22em; margin-top: 36px; font-size: clamp(18px, 1.7vw, 26px); line-height: 1.15; }
+
+  .foot { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; padding-block: 20px 28px; }
+  .cue { color: var(--ink); text-decoration: none; }
 
   @media (min-width: 900px) {
-    .stage { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); align-items: center; }
-    .copy { grid-column: 1 / span 6; align-self: start; padding-top: 2vw; }
-    .title { font-size: min(6.4vw, 124px); }
-    .sub { font-size: min(3.1vw, 56px); }
-    .collage { position: absolute; inset: 0 var(--gutter) 0 calc(var(--gutter) + 0.47 * (100% - 2 * var(--gutter))); height: auto; }
-    .collage :global(.f-oval) { left: 30%; top: 2%; width: 34%; }
-    .collage :global(.f-a) { left: 0; top: 14%; width: 26%; }
-    .collage :global(.f-b) { left: 6%; top: 44%; width: 16%; }
-    .collage :global(.f-pill) { right: 0; top: 4%; width: 26%; }
-    .collage :global(.f-main) { left: -8%; right: 0; bottom: 0; width: auto; }
-    .collage :global(.f-c) { display: block; right: 0; top: 30%; width: 22%; }
+    .stage { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); align-items: center; padding-top: 72px; }
+    .photo { grid-column: 1 / span 5; grid-row: 1; align-self: stretch; min-height: 0; }
+    .copy { grid-column: 5 / -1; grid-row: 1; padding-left: 4%; order: 0; }
+    .lockup .t-display { font-size: min(7.4vw, 124px); }
+    .nick { font-size: min(13vw, 220px); left: 36%; top: 16%; }
   }
-
-  .foot { display: flex; justify-content: space-between; padding-top: 12px; }
-  .foot__cue { text-decoration: none; color: var(--ink); }
 </style>

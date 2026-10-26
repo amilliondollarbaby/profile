@@ -1,18 +1,16 @@
 ---
-// Magazine running head at the top of each spread: number, title, name, ink rule.
+// Running head at the top of each spread: an outlined pill with number and title, her name, an ink rule.
 interface Props { num: string; title: string; swatch?: 'pink' | 'purple' | 'yellow' | 'sky'; }
 const { num, title, swatch = 'pink' } = Astro.props;
 ---
 <div class="rh" data-reveal>
-  <p class="t-label rh__l"><span class:list={['swatch', `sw-${swatch}`]} aria-hidden="true"></span>No. {num}</p>
-  <p class="t-label rh__c">{title}</p>
+  <p class="pill"><span class:list={['swatch', `sw-${swatch}`]} aria-hidden="true"></span>({num}) // {title}</p>
   <p class="t-label rh__r">Danielle Sellado</p>
 </div>
 <hr class="rule rule--ink" />
 <style>
-  .rh { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; padding-bottom: 12px; }
-  .rh__l { display: flex; align-items: center; gap: 10px; color: var(--ink); }
-  .rh__c { text-align: center; }
-  .rh__r { text-align: right; }
-  @media (max-width: 600px) { .rh { grid-template-columns: 1fr auto; } .rh__c { display: none; } }
+  .rh { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 14px; }
+  .rh .pill { margin: 0; }
+  .rh__r { color: var(--ink); }
+  @media (max-width: 600px) { .rh__r { display: none; } }
 </style>

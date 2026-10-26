@@ -64,7 +64,6 @@ const isTodo = (s: string) => s.startsWith('TODO');
   </div>
 </section>
 <style>
-  em { font-style: italic; }
   .open { margin-top: clamp(48px, 6vw, 88px); row-gap: 28px; align-items: end; }
   @media (min-width: 900px) { .open__h { grid-column: 1 / span 8; } .open__deck { grid-column: 9 / -1; } }
 
@@ -85,7 +84,7 @@ const isTodo = (s: string) => s.startsWith('TODO');
 
   .pull { margin: clamp(88px, 10vw, 150px) 0 0; row-gap: 20px; }
   @media (min-width: 900px) { .pull__lab, .pull__q, .pull__more { grid-column: 2 / span 10; } }
-  .pull__q { margin: 0; font-style: italic; font-weight: 500; font-size: clamp(30px, 3.8vw, 60px); line-height: 1.12; letter-spacing: -0.02em; }
+  .pull__q { margin: 0; font-weight: 600; font-stretch: 112%; font-size: clamp(26px, 3.2vw, 50px); line-height: 1.12; letter-spacing: -0.02em; }
   .pull__lab { display: flex; align-items: center; gap: 10px; }
   .pull__more { display: flex; flex-wrap: wrap; gap: 8px 40px; padding-top: 16px; border-top: 1px solid var(--line); }
 

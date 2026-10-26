@@ -1,31 +1,28 @@
-/* Fraunces with its Soft + Wonky axes: the closest free match to Royal Avenue's groovy 70s serif.
-   DM Mono for small credit lines. Swap --display for Royal Avenue if Dione licenses it. */
-@import '@fontsource-variable/fraunces/full.css';
-@import '@fontsource-variable/fraunces/full-italic.css';
-@import '@fontsource/dm-mono/400.css';
-@import '@fontsource/dm-mono/500.css';
+/* Type, after Dione's Calvin Klein reference: wide bold caps (Archivo, width 125)
+   with a cursive script woven through (Great Vibes). Archivo also sets body and labels. */
+@import '@fontsource-variable/archivo/wdth.css';
+@import '@fontsource/great-vibes/400.css';
 
 :root {
-  /* Pastel set: purple to pink to white backdrop, vintage grain (rebrand, Oct 2026). */
-  --paper: #ead7ef;
-  --card: rgba(255, 255, 255, 0.55);
-  --frame-fill: rgba(255, 255, 255, 0.32);
-  --frame-line: rgba(255, 255, 255, 0.85);
-  --radius: 22px;
-  --ink: #221a2c;
-  --body-ink: #3d3446;
-  --muted: #6c6176;
-  --line: rgba(34, 26, 44, 0.16);
-  --cc-pink: #fad4e4;
-  --cc-purple: #e4daf8;
-  --cc-yellow: #fcf0b4;
-  --cc-sky: #d2e8fb;
-  --heart: #e0216f; /* the scribble heart only */
+  /* Clean light set, no gradient. Cotton candy only on tiny elements (rebrand, Oct 2026). */
+  --paper: #efefed;
+  --card: #ffffff;
+  --frame-fill: #f7f7f6;
+  --frame-line: rgba(28, 26, 31, 0.14);
+  --radius: 14px;
+  --ink: #1c1a1f;
+  --body-ink: #3b383f;
+  --muted: #727077;
+  --line: rgba(28, 26, 31, 0.14);
+  /* Cotton candy, saturated just enough to read as tiny marks on the light set. */
+  --cc-pink: #f5a3c7;
+  --cc-purple: #c7b2f0;
+  --cc-yellow: #f8dc72;
+  --cc-sky: #a6d0f3;
   --accent-text: #b8175a;
 
-  --serif: 'Fraunces Variable', Georgia, serif;
-  --display: var(--serif);
-  --mono: 'DM Mono', ui-monospace, Menlo, monospace;
+  --sans: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
+  --script: 'Great Vibes', cursive;
 
   /* Grid: 12 columns, one outer margin everywhere (80px on desktop). */
   --gutter: clamp(20px, 5.5vw, 80px);
@@ -48,35 +45,10 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--serif);
-  font-size: 17px;
+  font-family: var(--sans);
+  font-size: 16px;
   line-height: 1.6;
-  font-optical-sizing: auto;
-  font-variation-settings: 'SOFT' 50;
   -webkit-font-smoothing: antialiased;
-}
-
-/* The set: a pastel backdrop, purple at the top, through pink, fading to white at the floor.
-   Fixed behind the whole site. A vintage film grain sits over everything. */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(90% 60% at 50% 18%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 70%),
-    linear-gradient(180deg, #c9b7ea 0%, #dcc3ee 28%, #f3cfe2 58%, #fbe6ef 78%, #ffffff 100%);
-}
-body::after {
-  content: '';
-  position: fixed;
-  inset: -50%;
-  z-index: 90;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.38 0 0 0 0.55 -0.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.38;
-  mix-blend-mode: multiply;
 }
 
 img,
@@ -99,7 +71,7 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--heart);
+  outline: 2px solid var(--accent-text);
   outline-offset: 3px;
 }
 
@@ -139,43 +111,60 @@ button {
 .t-display,
 .t-headline,
 .t-title {
-  font-family: var(--display);
-  font-variation-settings: 'SOFT' 100, 'WONK' 1;
+  margin: 0;
+  font-stretch: 125%;
+  text-transform: uppercase;
 }
 .t-display {
-  margin: 0;
-  font-weight: 900;
-  font-size: clamp(52px, 9vw, 160px);
+  font-weight: 800;
+  font-size: clamp(44px, 7.4vw, 132px);
   line-height: 0.9;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
 }
 .t-headline {
-  margin: 0;
   font-weight: 800;
-  font-size: clamp(40px, 5.6vw, 92px);
+  font-size: clamp(32px, 4.4vw, 72px);
   line-height: 0.95;
   letter-spacing: -0.02em;
 }
 .t-title {
-  margin: 0;
   font-weight: 700;
-  font-size: clamp(22px, 2vw, 30px);
-  line-height: 1.1;
-  letter-spacing: -0.015em;
+  font-size: clamp(17px, 1.5vw, 22px);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+/* The cursive word woven through the caps, as in the reference. */
+.t-display em,
+.t-headline em,
+.script {
+  font-family: var(--script);
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.t-display em,
+.t-headline em {
+  display: inline-block;
+  font-size: 1.35em;
+  line-height: 0.5;
+  margin-inline: 0.04em;
+  transform: translateY(0.08em) rotate(-4deg);
+  -webkit-text-stroke: 0.06em var(--paper);
+  paint-order: stroke fill;
 }
 .t-deck {
   margin: 0;
-  font-style: italic;
-  font-size: clamp(19px, 1.7vw, 25px);
-  line-height: 1.35;
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.45;
   color: var(--body-ink);
 }
 .t-deck b,
 .caps {
-  font-family: var(--mono);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 0.72em;
+  font-weight: 700;
+  font-stretch: 125%;
+  font-size: 0.8em;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -186,23 +175,40 @@ button {
 }
 .t-caption {
   margin: 0;
-  font-style: italic;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.45;
   color: var(--muted);
 }
 .t-label {
   margin: 0;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 400;
+  font-size: 10.5px;
+  font-weight: 600;
+  font-stretch: 125%;
   line-height: 1.6;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-/* Placeholder copy waiting on Dione: quiet italic, clearly marked. */
+/* Outlined pill label, e.g. "Spring // Summer collection". */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border: 1.2px solid var(--ink);
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  font-stretch: 125%;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+/* Placeholder copy waiting on Dione: quiet, clearly marked. */
 .tbd {
   font-style: italic;
   color: var(--muted);
@@ -219,11 +225,11 @@ button {
   border-top-color: var(--ink);
 }
 
-/* ---------- Cotton candy accents ---------- */
+/* ---------- Cotton candy: tiny elements only ---------- */
 .swatch {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: var(--sw, var(--cc-pink));
   flex: none;
@@ -232,8 +238,22 @@ button {
 .sw-purple { --sw: var(--cc-purple); }
 .sw-yellow { --sw: var(--cc-yellow); }
 .sw-sky { --sw: var(--cc-sky); }
+/* The little square and dash from the reference. */
+.tick {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: var(--sw, var(--cc-pink));
+}
+.dash {
+  display: inline-block;
+  width: 72px;
+  height: 5px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, var(--sw, var(--cc-pink)));
+}
 
-/* ---------- Links that act as buttons: underlined text, no pills ---------- */
+/* ---------- Links ---------- */
 .link {
   display: inline-flex;
   align-items: baseline;
@@ -247,11 +267,11 @@ button {
   opacity: 0.6;
 }
 .link--big {
-  font-family: var(--display);
-  font-variation-settings: 'SOFT' 100, 'WONK' 1;
-  font-size: clamp(28px, 3.4vw, 52px);
+  font-size: clamp(22px, 2.6vw, 40px);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
   line-height: 1.1;
   border-bottom-width: 2px;
 }

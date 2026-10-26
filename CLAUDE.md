@@ -127,15 +127,15 @@ A few personal, human touches, then **one clear invite to meet** with a booking 
 
 ## 4. Brand and design direction
 
-> **Rebrand, Oct 26 2026 (Dione's calls, latest wins):**
-> - **Background: a pastel set.** Purple at the top, through pink, fading to white at the bottom, with a vintage film grain over everything (`body::before` / `body::after` in `src/styles/global.css`). Fixed behind the whole site. Reference: a Nike studio shoot with a gradient backdrop and floating photo frames.
-> - **Photo frames float on the set:** rounded rectangles, ovals and pills with a thin white outline and a soft translucent fill (`Plate.astro`, `shape` prop). The cover is a collage of these, with the main portrait in front.
-> - **Typography: groovy 70s display serif.** Her reference is **Royal Avenue by PrestigeType** (paid; not licensed yet). Stand-in: **Fraunces** with Soft 100 + Wonky 1 at weight 800–900 for headlines, Fraunces for body, **DM Mono** caps for small credit labels. If she licenses Royal Avenue, self-host it and point `--display` at it.
-> - **No logo anywhere.** Use her name as text: Danielle Sellado (full name), Dioné/Dione (nickname). The scribble heart is retired too.
-> - **Cotton candy pastels:** the backdrop itself is now the pastel (purple → pink → white). Otherwise pastels stay small: running-head dots, marquee dots. No pastel cards, no highlighter bars, no red or brown.
-> - **Layout is a magazine, not a template:** 12-column grid, a running head on every spread (No. 0X · title · Danielle Sellado), hairline rules, numbered image plates, a different composition per spread. No pills, chips, dashed boxes or résumé cards. Buttons are underlined text links.
-> - **Work showcase (section 04)** follows her video reference: her portrait centre stage on the studio floor, the title split either side ("Socials" / "& Creative"), small mono credits under each half, registration marks in the corners, and a strip of work cards sliding across the middle (pauses on hover, static under reduced motion).
-> - **Photos:** Dione will shoot portraits in that studio spirit. The cover and the showcase have slots for them.
+> **Rebrand, Oct 26 2026 (Dione's calls, latest wins). Reference: a Calvin Klein campaign layout.**
+> - **Typography, 100% from that reference:** wide bold caps (**Archivo**, width 125, weight 800) with a **cursive script woven through** (**Great Vibes**). In headlines, the `<em>` words become the script (lowercase, larger, slightly rotated, with a paper-coloured halo so it cuts through the caps). Archivo also sets body text and labels. Small labels sit in **outlined pills** ("(02) // The executive partner").
+> - **Her nickname "Dioné" is always in the script.** Full name Danielle Sellado in the wide caps.
+> - **Background:** clean light off-white (#EFEFED) with thin construction lines, a thin ring and a huge faint ghost name. **No pastel gradient, no grain.**
+> - **Cotton candy only on tiny elements:** the little square, the gradient dash, dots in pills (pink #F5A3C7, purple #C7B2F0, yellow #F8DC72, sky #A6D0F3). Never text, cards or backgrounds. No red or brown.
+> - **One main photo of her** on the cover: a cutout standing in front of the type, no frame. No collage of frames.
+> - **No logo anywhere.** The scribble heart is retired.
+> - **Layout:** 12-column grid, a running-head pill on every spread, hairline rules, a different composition per spread. Buttons are underlined text links.
+> - **Work showcase (section 04):** split staggered title ("Socials" / script "&" "Creative"), small credits, registration marks, her photo centre stage, a strip of work cards sliding across the middle (pauses on hover, static under reduced motion).
 > - The palette and type tables below are the **old** brand, kept for reference only.
 
 ### Colors

@@ -22,7 +22,7 @@ function playLoader(onDone: () => void) {
   const pct = document.getElementById('loader-pct')!;
   const bar = document.getElementById('loader-bar')!;
   const count = { v: 0 };
-  // The counter runs, then the studio lights come up: the dark loader fades to the bright set.
+  // The counter runs, then the loader fades into the page.
   gsap.timeline({
     onComplete: () => {
       try { sessionStorage.setItem('dione-loaded', '1'); } catch {}

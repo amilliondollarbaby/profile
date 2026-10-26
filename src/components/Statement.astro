@@ -4,10 +4,10 @@ import { statement } from '../data/content';
 <!-- Approved copy, word for word. A full-page pause before the creative work. -->
 <section id="statement" class="statement" aria-label="Statement">
   <div class="wrap statement__inner">
-    <p class="t-label"><span class="swatch sw-sky" aria-hidden="true"></span> No. 03</p>
+    <p class="pill"><span class="swatch sw-sky" aria-hidden="true"></span>(03) // Statement</p>
     <p class="statement__text">
       <span class="t-display" data-statement-line>{statement[0]}</span>
-      <span class="t-display it" data-statement-line>{statement[1]}</span>
+      <span class="t-display" data-statement-line><em>{statement[1]}</em></span>
       <span class="t-deck small" data-statement-line>{statement[2]}</span>
     </p>
   </div>
@@ -15,9 +15,9 @@ import { statement } from '../data/content';
 <style>
   .statement { min-height: 100svh; display: grid; align-items: center; padding-block: 120px; border-block: 1px solid var(--line); }
   .statement__inner { display: grid; justify-items: center; text-align: center; gap: clamp(32px, 4vw, 56px); }
-  .t-label { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); }
+  .pill { margin: 0; }
   .statement__text { margin: 0; display: grid; gap: 0.1em; }
-  .statement__text .t-display { display: block; font-size: min(8.6vw, 140px); }
-  .it { font-style: italic; }
+  .statement__text .t-display { display: block; font-size: min(6.4vw, 110px); }
+  .statement__text em { font-size: 1.15em; line-height: 1.1; transform: rotate(-3deg); margin-top: 0.1em; }
   .small { display: block; max-width: 22em; margin: 1.6em auto 0; }
 </style>

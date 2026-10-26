@@ -43,23 +43,22 @@ const sw = ['pink', 'purple', 'yellow', 'sky'];
       </div>
       <div class="col">
         <p class="t-label">Colophon</p>
-        <p><em>Set in Bodoni Moda.</em></p>
+        <p>Set in Archivo and Great Vibes.</p>
       </div>
       <div class="sign">
-        <p class="sign__name">Danielle Sellado <em>(Dioné)</em></p>
+        <p class="sign__name">Danielle Sellado <em>Dioné</em></p>
         <p class="t-label">© {new Date().getFullYear()} {site.fullName}</p>
       </div>
     </footer>
   </div>
 </section>
 <style>
-  em { font-style: italic; }
   .closing { padding-bottom: 40px; overflow: hidden; }
   .marquee { overflow: hidden; margin-top: clamp(40px, 5vw, 72px); padding-block: 8px 24px; border-bottom: 1px solid var(--line); }
   .marquee__track { display: flex; width: max-content; animation: marquee 40s linear infinite; }
-  .marquee__set { display: flex; font-size: clamp(64px, 10vw, 168px); font-weight: 800; letter-spacing: -0.035em; line-height: 1; white-space: nowrap; }
+  .marquee__set { display: flex; font-size: clamp(56px, 8vw, 132px); font-weight: 800; font-stretch: 125%; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.1; white-space: nowrap; }
   .marquee__set > span { display: inline-flex; align-items: center; gap: 0.3em; padding-right: 0.3em; }
-  .marquee__set em { font-weight: 500; }
+  .marquee__set em { font-family: var(--script); font-style: normal; font-weight: 400; font-stretch: 100%; text-transform: none; font-size: 1.2em; letter-spacing: 0; }
   .marquee .swatch { width: 0.2em; height: 0.2em; }
   @keyframes marquee { to { transform: translateX(-50%); } }
 
@@ -73,7 +72,7 @@ const sw = ['pink', 'purple', 'yellow', 'sky'];
   .col ul { list-style: none; padding: 0; }
   .col a { text-decoration: none; border-bottom: 1px solid var(--line); }
   @media (min-width: 900px) { .col { grid-column: span 3; } }
-  .sign__name { margin: 0; font-family: var(--display); font-variation-settings: 'SOFT' 100, 'WONK' 1; font-weight: 900; font-size: clamp(36px, 5vw, 72px); line-height: 1; letter-spacing: -0.02em; }
-  .sign__name em { font-weight: 400; }
+  .sign__name { margin: 0; font-weight: 800; font-stretch: 125%; text-transform: uppercase; font-size: clamp(28px, 4vw, 60px); line-height: 1; letter-spacing: -0.02em; }
+  .sign__name em { font-family: var(--script); font-style: normal; font-weight: 400; font-stretch: 100%; text-transform: none; font-size: 1.3em; }
   .sign { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
 </style>

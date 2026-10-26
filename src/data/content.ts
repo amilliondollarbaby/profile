@@ -93,20 +93,8 @@ export const testimonials = [
 
 export const statement = ["Creativity isn’t the software.", "It’s the way you see.", 'And the way you see gets better the more you feed it.'];
 
-// Section 04. Folder names match assets/carousels/.
-export const carousels = [
-  { folder: '01-same-post-one-rewrite', title: 'Same post. One rewrite. More sends.', topic: 'caption rewriting', slides: 8 },
-  { folder: '02-ai-at-work-responsibly', title: '3 rules for using AI at work, responsibly', topic: 'AI at work', slides: 6 },
-  { folder: '03-same-video-new-first-line', title: 'Same video. New first line. They stay.', topic: 'Reels hooks', slides: 7 },
-  { folder: '04-learn-ai-one-boring-task', title: 'Learn AI with one boring task', topic: 'learning AI', slides: 6 },
-  { folder: '05-search-your-niche', title: 'Search your niche. Do you show up?', topic: 'Instagram SEO', slides: 6 },
-  { folder: '06-women-who-build', title: "Most creators are women. Most top creators aren’t.", topic: 'women who build', slides: 4 },
-  { folder: '07-carousel-anatomy', title: "You’ll swipe to the end of this one", topic: 'carousel anatomy', slides: 7 },
-  { folder: '08-tgif-friday-reset', title: 'Monday blues are a Friday problem.', topic: 'single post', slides: 1 },
-];
-
 export const creativeTabs = [
-  { id: 'graphics', label: 'Graphics', count: carousels.length },
+  { id: 'graphics', label: 'Graphics', count: 6 },
   { id: 'designs', label: 'Designs', count: 5 },
   { id: 'motion', label: 'AI motion', count: 5 },
   { id: 'reels', label: 'Reels', count: 5 },

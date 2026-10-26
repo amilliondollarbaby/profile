@@ -31,24 +31,6 @@ function initTabs() {
   select(tabs[0]);
 }
 
-// ---------- Deck viewer ----------
-function initDecks(lenis?: Lenis) {
-  document.querySelectorAll<HTMLButtonElement>('[data-open-deck]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const deck = document.getElementById(`deck-${btn.dataset.openDeck}`) as HTMLDialogElement | null;
-      if (!deck) return;
-      deck.showModal();
-      deck.querySelector<HTMLElement>('.deck__track')?.scrollTo({ left: 0 });
-      lenis?.stop();
-      deck.addEventListener('close', () => lenis?.start(), { once: true });
-    });
-  });
-  // Click on the backdrop closes the deck.
-  document.querySelectorAll<HTMLDialogElement>('dialog.deck').forEach((d) => {
-    d.addEventListener('click', (e) => { if (e.target === d) d.close(); });
-  });
-}
-
 // ---------- Nav colour follows the section underneath ----------
 function initNav() {
   const nav = document.getElementById('nav');
@@ -136,11 +118,9 @@ if (motion) {
       lenis.scrollTo(target, { offset: 0 });
     });
   });
-  initDecks(lenis);
   initNav();
   initReveals();
   playLoader(heroIn);
 } else {
-  initDecks();
   initNav();
 }

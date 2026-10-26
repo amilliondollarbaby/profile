@@ -94,7 +94,7 @@ Give it a whole screen of breathing room. It leads into the creative work.
 
 ### 4. Socials & creative
 Organize it by format:
-- **Graphics:** LinkedIn carousels and social graphics. Assets are already provided; see section 8.
+- **Graphics:** social graphics Dione picks. **Don't use her LinkedIn posts/carousels on the site** (her call, Oct 26 2026). The carousels in `assets/` are style reference only.
 - **Designs:** layouts and brand systems. The Dioné brand itself counts as one.
 - **AI motion:** ⚠️ TODO, waiting on Dione's files
 - **Reels:** ⚠️ TODO, waiting on Dione's files
@@ -105,7 +105,7 @@ Each piece gets one line of context so it reads as strategy, not decoration. For
 ### 5. AI expertise
 Show workflows, not a list of tools. Her differentiator is a real story:
 > She started using Claude as a chat assistant, named it **Babbi**, and built a working content system with it: research, carousel design in her brand style, captions written to her rules, scheduling LinkedIn posts, and optimizing her Upwork and OnlineJobs.ph profiles.
-Frame it as **"how I use AI to multiply output, responsibly."** Her carousel "3 rules for using AI at work, responsibly" fits here as proof.
+Frame it as **"how I use AI to multiply output, responsibly."** Proof pieces: ⚠️ TODO, Dione picks them (not her LinkedIn posts).
 
 ### 6. Tools
 A compact logo strip grouped as **Ops / Creative / AI**. One screen at most.
@@ -216,7 +216,7 @@ brand/
 carousel-source-html/              original HTML/CSS for every slide, the best reference for exact spacing, type sizes, grain and doodle style
                                    (Main.dc.html is post 1 slide 1; the support.js they reference was not included and isn't needed to view them)
 ```
-All slides are 1080×1350 JPGs. They were designed by Dione with Babbi and scheduled on LinkedIn from Oct 22 to Nov 12, 2026.
+**Reference only: don't publish these on the site** (Dione's call). All slides are 1080×1350 JPGs. They were designed by Dione with Babbi and scheduled on LinkedIn from Oct 22 to Nov 12, 2026.
 
 **Still needed from Dione:** executive testimonials, AI motion files, reels, 3D project renders, tool logos, closing copy, booking link, contact email, domain, and education confirmation.
 

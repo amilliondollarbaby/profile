@@ -1,13 +1,7 @@
 ---
-import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
 import SectionHead from './SectionHead.astro';
-import { aiWorkflow, carousels } from '../data/content';
-
-const covers = import.meta.glob<ImageMetadata>('../../assets/carousels/*/slide-01.jpg', { eager: true, import: 'default' });
-const proof = carousels
-  .filter((c) => ['02-ai-at-work-responsibly', '04-learn-ai-one-boring-task'].includes(c.folder))
-  .map((c) => ({ ...c, cover: covers[`../../assets/carousels/${c.folder}/slide-01.jpg`] }));
+import Todo from './Todo.astro';
+import { aiWorkflow } from '../data/content';
 ---
 <section id="ai" class="section section--dark grain" aria-labelledby="ai-title">
   <div class="wrap">
@@ -30,14 +24,9 @@ const proof = carousels
       ))}
     </ol>
 
-    <h3 class="label sub" data-reveal>Proof, in carousel form</h3>
+    <h3 class="label sub" data-reveal>Proof</h3>
     <div class="proof">
-      {proof.map((p) => (
-        <button class="proof__item" data-open-deck={p.folder} data-reveal>
-          <Image src={p.cover} alt={`Cover slide: ${p.title}`} widths={[240, 480]} sizes="160px" loading="lazy" />
-          <span><strong>{p.title}</strong><span class="label">LinkedIn carousel · {p.slides} slides · tap to swipe</span></span>
-        </button>
-      ))}
+      {[1, 2].map((n) => <Todo tag={`AI proof 0${n}`} class="proof__slot">a before/after or workflow example Dione picks</Todo>)}
     </div>
   </div>
 </section>
@@ -59,8 +48,5 @@ const proof = carousels
   .sub { display: block; margin: clamp(56px, 7vw, 96px) 0 24px; }
   .proof { display: grid; gap: 20px; }
   @media (min-width: 900px) { .proof { grid-template-columns: 1fr 1fr; } }
-  .proof__item { display: flex; align-items: center; gap: 20px; padding: 14px; border: 1.5px solid rgba(205, 191, 230, 0.3); border-radius: 18px; background: rgba(255, 255, 255, 0.04); text-align: left; cursor: zoom-in; transition: background 0.3s; }
-  .proof__item:hover { background: rgba(255, 255, 255, 0.09); }
-  .proof__item :global(img) { width: 120px; height: auto; border-radius: 8px; flex: none; }
-  .proof__item strong { display: block; font-size: 20px; line-height: 1.2; margin-bottom: 6px; }
+  .proof :global(.proof__slot) { min-height: 160px; }
 </style>

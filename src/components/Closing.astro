@@ -19,11 +19,12 @@ const sw = ['pink', 'purple', 'yellow', 'sky'];
 
   <div class="wrap">
     <div class="grid invite">
+      <span class="blk blk--circle sw-purple c1" aria-hidden="true"></span>
       <h2 id="contact-title" class="t-headline invite__h" data-reveal>Got a business that needs <em>both sides running?</em></h2>
       <div class="invite__side" data-reveal>
         <p class="t-deck"><span class="tbd">[Draft]</span> Tell me what’s on your plate. We’ll see if I’m the right fit.</p>
         <p class="t-caption tbd">A few personal touches, when Dione is ready to share.</p>
-        <a class="link link--big" href={site.bookingUrl || '#contact'}>Book a call <span aria-hidden="true">→</span></a>
+        <a class="key key--wide" href={site.bookingUrl || '#contact'}><span class="key__legend" aria-hidden="true">↵ enter</span><span>Book a call</span></a>
         {!site.bookingUrl && <p class="t-caption">Booking link to come.</p>}
       </div>
     </div>
@@ -62,7 +63,9 @@ const sw = ['pink', 'purple', 'yellow', 'sky'];
   .marquee .swatch { width: 0.2em; height: 0.2em; }
   @keyframes marquee { to { transform: translateX(-50%); } }
 
-  .invite { margin-top: clamp(64px, 8vw, 120px); row-gap: 40px; align-items: end; }
+  .invite { position: relative; margin-top: clamp(64px, 8vw, 120px); row-gap: 40px; align-items: end; }
+  .invite > :not(.blk) { position: relative; z-index: 1; }
+  .c1 { width: clamp(160px, 17vw, 260px); aspect-ratio: 1; right: -5vw; bottom: -110px; }
   .invite__side { display: grid; gap: 20px; justify-items: start; }
   @media (min-width: 900px) { .invite__h { grid-column: 1 / span 7; } .invite__side { grid-column: 9 / -1; } }
 

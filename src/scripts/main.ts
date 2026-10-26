@@ -53,6 +53,15 @@ function initReveals() {
   });
 }
 
+// Ribbons: the words drift along the wavy path, one repeat at a time, forever.
+function initRibbons() {
+  document.querySelectorAll<SVGTextPathElement>('[data-ribbon]').forEach((tp) => {
+    const text = tp.parentNode as SVGTextElement;
+    const seg = text.getComputedTextLength() / 6;
+    gsap.to(tp, { attr: { startOffset: -seg }, duration: seg / 45, ease: 'none', repeat: -1 });
+  });
+}
+
 gsap.registerPlugin(ScrollTrigger);
 
 if (motion) {
@@ -70,6 +79,7 @@ if (motion) {
   });
   initNav();
   initReveals();
+  document.fonts.ready.then(initRibbons);
   playLoader(heroIn);
 } else {
   initNav();

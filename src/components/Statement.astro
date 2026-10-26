@@ -3,6 +3,9 @@ import { statement } from '../data/content';
 ---
 <!-- Approved copy, word for word. A full-page pause before the creative work. -->
 <section id="statement" class="statement" aria-label="Statement">
+  <span class="blk blk--circle sw-pink s1" aria-hidden="true"></span>
+  <span class="blk sw-purple s2" aria-hidden="true"></span>
+  <span class="blk blk--pill sw-yellow s3" aria-hidden="true"></span>
   <div class="wrap statement__inner">
     <p class="pill"><span class="swatch sw-sky" aria-hidden="true"></span>(03) // Statement</p>
     <p class="statement__text">
@@ -14,7 +17,11 @@ import { statement } from '../data/content';
   </div>
 </section>
 <style>
-  .statement { min-height: 100svh; display: grid; align-items: center; padding-block: 120px; border-block: 1px solid var(--line); }
+  .statement { position: relative; overflow: hidden; min-height: 100svh; display: grid; align-items: center; padding-block: 120px; border-block: 1px solid var(--line); }
+  .statement__inner { position: relative; z-index: 1; }
+  .s1 { width: clamp(160px, 22vw, 340px); aspect-ratio: 1; right: -6vw; top: 10%; }
+  .s2 { width: clamp(70px, 8vw, 120px); aspect-ratio: 1; left: 6vw; bottom: 14%; transform: rotate(12deg); }
+  .s3 { width: clamp(120px, 16vw, 240px); height: clamp(36px, 4vw, 60px); left: -3vw; top: 18%; }
   .statement__inner { display: grid; justify-items: center; text-align: center; gap: clamp(32px, 4vw, 56px); }
   .pill { margin: 0; }
   .statement__text { margin: 0; display: grid; gap: 0.1em; }

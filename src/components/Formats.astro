@@ -3,11 +3,10 @@
 // Every card is a slot until Dione sends the real files.
 const formats = [
   { id: 'graphics', n: '04.1', title: 'Graphics', script: 'for socials', sw: 'pink', count: 6, ratio: '4 / 5', cols: 3 },
-  { id: 'designs', n: '04.2', title: 'Designs', script: '& brand systems', sw: 'purple', count: 5, ratio: '1 / 1', cols: 3 },
+  { id: 'designs', n: '04.2', title: 'Designs', script: '& brand systems', sw: 'purple', count: 6, ratio: '1 / 1', cols: 3 },
   { id: 'motion', n: '04.3', title: 'AI', script: 'motion', sw: 'yellow', count: 4, ratio: '16 / 9', cols: 2 },
   { id: 'reels', n: '04.4', title: 'Reels', script: 'short-form', sw: 'sky', count: 5, ratio: '9 / 16', cols: 5 },
 ] as const;
-const swatches = [['Ink', '#1C1A1F'], ['Paper', '#EFEFED'], ['Pink', '#F5A3C7'], ['Purple', '#C7B2F0'], ['Yellow', '#F8DC72'], ['Sky', '#A6D0F3']];
 ---
 <section class="spread formats" aria-label="Work by format">
   <div class="wrap">
@@ -21,18 +20,8 @@ const swatches = [['Ink', '#1C1A1F'], ['Paper', '#EFEFED'], ['Pink', '#F5A3C7'],
         <ul class:list={['fmt__grid', `is-${f.id}`]} style={`--cols:${f.cols};--ratio:${f.ratio}`}>
           {Array.from({ length: f.count }, (_, i) => (
             <li class:list={['slot', f.id === 'reels' && 'slot--phone']} data-reveal>
-              {f.id === 'designs' && i === 0 ? (
-                <div class="brand">
-                  <p class="brand__name">Danielle <em>Dioné</em></p>
-                  <ul class="brand__sw">{swatches.map(([n, hex]) => <li><span style={`background:${hex}`}></span>{n}</li>)}</ul>
-                  <p class="t-label">Brand system · Dioné · type and palette</p>
-                </div>
-              ) : (
-                <>
-                  <span class="t-label slot__tag"><span class:list={['swatch', `sw-${f.sw}`]} aria-hidden="true"></span>{f.title === 'AI' ? 'AI motion' : f.title.replace(/s$/, '')} {String(i + 1).padStart(2, '0')}</span>
-                  <span class="slot__tbd">To come</span>
-                </>
-              )}
+              <span class="t-label slot__tag"><span class:list={['swatch', `sw-${f.sw}`]} aria-hidden="true"></span>{f.title === 'AI' ? 'AI motion' : f.title.replace(/s$/, '')} {String(i + 1).padStart(2, '0')}</span>
+              <span class="slot__tbd">To come</span>
             </li>
           ))}
         </ul>
@@ -55,7 +44,6 @@ const swatches = [['Ink', '#1C1A1F'], ['Paper', '#EFEFED'], ['Pink', '#F5A3C7'],
 
   .fmt__grid { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
   @media (min-width: 900px) { .fmt__grid { grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); gap: 24px; } }
-  .is-designs > :first-child { grid-column: span 2; aspect-ratio: auto; }
   .is-motion { grid-template-columns: 1fr; }
   @media (min-width: 900px) { .is-motion { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   /* Reels swipe sideways on phones. */
@@ -72,10 +60,4 @@ const swatches = [['Ink', '#1C1A1F'], ['Paper', '#EFEFED'], ['Pink', '#F5A3C7'],
   .slot--phone::before { content: ''; position: absolute; top: 9px; left: 50%; width: 30%; height: 6px; transform: translateX(-50%); border-radius: 6px; background: var(--ink); opacity: 0.85; }
   .slot--phone .slot__tag { top: 26px; }
 
-  .brand { width: 100%; height: 100%; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; border-radius: inherit; background: var(--card); }
-  .brand__name { margin: 0; font-size: clamp(32px, 4vw, 60px); font-weight: 800; font-stretch: 125%; text-transform: uppercase; line-height: 0.95; letter-spacing: -0.02em; }
-  .brand__name em { display: block; font-family: var(--script); font-style: normal; font-weight: 400; font-stretch: 100%; text-transform: none; font-size: 1.3em; line-height: 0.9; margin-left: 0.6em; }
-  .brand__sw { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 10px 22px; font-size: 10.5px; font-weight: 600; font-stretch: 125%; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-  .brand__sw li { display: flex; align-items: center; gap: 8px; }
-  .brand__sw span { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--line); }
 </style>

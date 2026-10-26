@@ -1,6 +1,5 @@
 ---
 import RunningHead from './RunningHead.astro';
-import Logo from './Logo.astro';
 import { profiles, site } from '../data/content';
 const words = Array.from({ length: 6 }, () => 'Let’s work');
 const sw = ['pink', 'purple', 'yellow', 'sky'];
@@ -47,7 +46,7 @@ const sw = ['pink', 'purple', 'yellow', 'sky'];
         <p><em>Set in Bodoni Moda.</em></p>
       </div>
       <div class="sign">
-        <Logo size={56} />
+        <p class="sign__name">Danielle Sellado <em>(Dioné)</em></p>
         <p class="t-label">© {new Date().getFullYear()} {site.fullName}</p>
       </div>
     </footer>
@@ -74,5 +73,7 @@ const sw = ['pink', 'purple', 'yellow', 'sky'];
   .col ul { list-style: none; padding: 0; }
   .col a { text-decoration: none; border-bottom: 1px solid var(--line); }
   @media (min-width: 900px) { .col { grid-column: span 3; } }
+  .sign__name { margin: 0; font-family: var(--display); font-variation-settings: 'SOFT' 100, 'WONK' 1; font-weight: 900; font-size: clamp(36px, 5vw, 72px); line-height: 1; letter-spacing: -0.02em; }
+  .sign__name em { font-weight: 400; }
   .sign { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
 </style>

@@ -93,13 +93,6 @@ export const testimonials = [
 
 export const statement = ["Creativity isn’t the software.", "It’s the way you see.", 'And the way you see gets better the more you feed it.'];
 
-export const creativeTabs = [
-  { id: 'graphics', label: 'Graphics', count: 6 },
-  { id: 'designs', label: 'Designs', count: 5 },
-  { id: 'motion', label: 'AI motion', count: 5 },
-  { id: 'reels', label: 'Reels', count: 5 },
-] as const;
-
 // Section 05. Steps come from the real Babbi story in CLAUDE.md.
 export const aiWorkflow = [
   { step: 'Research', detail: 'TODO: one line on how she researches a topic with Babbi' },

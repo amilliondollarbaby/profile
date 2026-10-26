@@ -1,16 +1,19 @@
-/* One family, fashion-magazine style: Bodoni Moda with optical sizes, so small text stays sturdy. */
-@import '@fontsource-variable/bodoni-moda/opsz.css';
-@import '@fontsource-variable/bodoni-moda/opsz-italic.css';
+/* Fraunces with its Soft + Wonky axes: the closest free match to Royal Avenue's groovy 70s serif.
+   DM Mono for small credit lines. Swap --display for Royal Avenue if Dione licenses it. */
+@import '@fontsource-variable/fraunces/full.css';
+@import '@fontsource-variable/fraunces/full-italic.css';
+@import '@fontsource/dm-mono/400.css';
+@import '@fontsource/dm-mono/500.css';
 
 :root {
-  /* Light gray studio + cotton candy accents (rebrand, Oct 2026). */
-  --paper: #ebebe9;
-  --paper-deep: #dfdfdc; /* image plates waiting for photos */
-  --card: #f6f6f4;
-  --ink: #141414;
-  --body-ink: #333333;
-  --muted: #6d6d6d;
-  --line: rgba(20, 20, 20, 0.16);
+  /* Photo studio: bright key light, cool gray falloff (rebrand, Oct 2026). */
+  --paper: #e4e8ed;
+  --paper-deep: rgba(255, 255, 255, 0.6); /* image plates waiting for photos */
+  --card: #fbfcfd;
+  --ink: #1b1e23;
+  --body-ink: #363a41;
+  --muted: #69707b;
+  --line: rgba(27, 30, 35, 0.16);
   --cc-pink: #fad4e4;
   --cc-purple: #e4daf8;
   --cc-yellow: #fcf0b4;
@@ -18,7 +21,9 @@
   --heart: #e0216f; /* the scribble heart only */
   --accent-text: #b8175a;
 
-  --serif: 'Bodoni Moda Variable', 'Bodoni 72', Didot, Georgia, serif;
+  --serif: 'Fraunces Variable', Georgia, serif;
+  --display: var(--serif);
+  --mono: 'DM Mono', ui-monospace, Menlo, monospace;
 
   /* Grid: 12 columns, one outer margin everywhere (80px on desktop). */
   --gutter: clamp(20px, 5.5vw, 80px);
@@ -45,7 +50,23 @@ body {
   font-size: 17px;
   line-height: 1.6;
   font-optical-sizing: auto;
+  font-variation-settings: 'SOFT' 50;
   -webkit-font-smoothing: antialiased;
+}
+
+/* The studio: a fixed cyclorama behind the whole site. Key light upper centre,
+   cool falloff to the edges, a soft floor glow at the bottom, a little film noise. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.52 0 0 0 0 0.56 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(70% 55% at 50% 30%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.55) 40%, rgba(255, 255, 255, 0) 75%),
+    radial-gradient(120% 60% at 50% 105%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 60%),
+    radial-gradient(150% 120% at 50% 40%, #f0f2f5 0%, #dfe3e9 55%, #c6cdd6 100%);
 }
 
 img,
@@ -105,19 +126,25 @@ button {
 }
 
 /* ---------- Type scale ---------- */
+.t-display,
+.t-headline,
+.t-title {
+  font-family: var(--display);
+  font-variation-settings: 'SOFT' 100, 'WONK' 1;
+}
 .t-display {
   margin: 0;
-  font-weight: 800;
+  font-weight: 900;
   font-size: clamp(52px, 9vw, 160px);
-  line-height: 0.86;
-  letter-spacing: -0.035em;
+  line-height: 0.9;
+  letter-spacing: -0.025em;
 }
 .t-headline {
   margin: 0;
-  font-weight: 700;
+  font-weight: 800;
   font-size: clamp(40px, 5.6vw, 92px);
-  line-height: 0.92;
-  letter-spacing: -0.03em;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
 }
 .t-title {
   margin: 0;
@@ -135,10 +162,11 @@ button {
 }
 .t-deck b,
 .caps {
+  font-family: var(--mono);
   font-style: normal;
-  font-weight: 600;
-  font-size: 0.84em;
-  letter-spacing: 0.07em;
+  font-weight: 500;
+  font-size: 0.72em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 .t-body {
@@ -155,10 +183,11 @@ button {
 }
 .t-label {
   margin: 0;
+  font-family: var(--mono);
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.6;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -208,8 +237,10 @@ button {
   opacity: 0.6;
 }
 .link--big {
+  font-family: var(--display);
+  font-variation-settings: 'SOFT' 100, 'WONK' 1;
   font-size: clamp(28px, 3.4vw, 52px);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.1;
   border-bottom-width: 2px;

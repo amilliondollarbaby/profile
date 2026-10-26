@@ -125,15 +125,15 @@ A few personal, human touches, then **one clear invite to meet** with a booking 
 
 ## 4. Brand and design direction
 
-> **Rebrand, Oct 26 2026 (Dione's call):** lighter and more editorial, fashion-magazine typography.
-> - **Background:** light gray studio (#EBEBE9; the hero has a soft studio-sweep vignette). Ink is near-black #141414.
-> - **Cotton candy pastels are small accents only** (pink #FAD4E4, purple #E4DAF8, yellow #FCF0B4, sky #D2E8FB): marker highlights behind italic words, dots, dashes. Never pastel cards or sections; cards are off-white. **No red, no brown.**
-> - **Typography: one family, Bodoni Moda (variable, optical sizes).** Inspired by a Vogue-style spread ("The way *she* wears it"): heavy high-contrast Didone headlines, tightly stacked staggered lines, one or two *italic* words, italic decks with NAMES IN CAPS, tiny spaced-caps credit labels. Only the typography was borrowed, not that spread's design or colours. Inter Tight, DM Serif Display and Caveat are retired.
-> - **Name:** Danielle Sellado is her full name; Dione / Dioné is the nickname and brand. Show both.
-> - **Photo:** Dione will shoot a portrait in that spirit (seated, light gray studio). The hero has a slot for it.
-> - **Layout is a magazine, not a template:** 12-column grid, a running head on every spread (No. 0X · title · Danielle Sellado), hairline rules, image plates with numbered captions, a different composition per spread. No pills, chips, highlighter bars, dashed boxes or résumé cards. Buttons are underlined text links.
-> - No hand-drawn notes or tilted cards. The pink scribble heart stays as the signature.
-> - Live tokens are in `src/styles/global.css`. The palette and type below are the **old** brand, kept for reference.
+> **Rebrand, Oct 26 2026 (Dione's calls, latest wins):**
+> - **Background: a real photo studio.** Bright key light in the upper centre, cool gray falloff to the edges, soft floor glow, fine film noise. It is fixed behind the whole site (`body::before` in `src/styles/global.css`). Never plain flat gray. Reference: a white cyclorama fashion shoot.
+> - **Typography: groovy 70s display serif.** Her reference is **Royal Avenue by PrestigeType** (paid; not licensed yet). Stand-in: **Fraunces** with Soft 100 + Wonky 1 at weight 800–900 for headlines, Fraunces for body, **DM Mono** caps for small credit labels. If she licenses Royal Avenue, self-host it and point `--display` at it.
+> - **No logo anywhere.** Use her name as text: Danielle Sellado (full name), Dioné/Dione (nickname). The scribble heart is retired too.
+> - **Cotton candy pastels are small accents only** (pink #FAD4E4, purple #E4DAF8, yellow #FCF0B4, sky #D2E8FB): one pastel block behind one image per spread, running-head dots, marquee dots. No pastel cards or sections, no highlighter bars, no red or brown.
+> - **Layout is a magazine, not a template:** 12-column grid, a running head on every spread (No. 0X · title · Danielle Sellado), hairline rules, numbered image plates, a different composition per spread. No pills, chips, dashed boxes or résumé cards. Buttons are underlined text links.
+> - **Work showcase (section 04)** follows her video reference: her portrait centre stage on the studio floor, the title split either side ("Socials" / "& Creative"), small mono credits under each half, registration marks in the corners, and a strip of work cards sliding across the middle (pauses on hover, static under reduced motion).
+> - **Photos:** Dione will shoot portraits in that studio spirit. The cover and the showcase have slots for them.
+> - The palette and type tables below are the **old** brand, kept for reference only.
 
 ### Colors
 | Token | Hex | Use |

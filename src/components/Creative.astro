@@ -1,88 +1,115 @@
 ---
 import RunningHead from './RunningHead.astro';
-import Plate from './Plate.astro';
-import Logo from './Logo.astro';
-import { creativeTabs } from '../data/content';
 
-// Asymmetric magazine layouts: [column span, aspect ratio, top offset] per plate.
-const layouts = {
-  graphics: [[5, '4 / 5', 0], [4, '1 / 1', 140], [3, '4 / 5', 40], [3, '1 / 1', 0], [5, '4 / 5', -60], [4, '4 / 5', 60]],
-  designs: [[6, '4 / 5', 0], [3, '1 / 1', 120], [3, '4 / 5', 40], [5, '1 / 1', 0], [7, '16 / 10', -40]],
-  motion: [[7, '16 / 9', 0], [5, '16 / 9', 120], [4, '16 / 9', 0], [4, '16 / 9', 60], [4, '16 / 9', 20]],
-  reels: [[3, '9 / 16', 0], [3, '9 / 16', 100], [3, '9 / 16', 30], [3, '9 / 16', 130], [3, '9 / 16', 0]],
-} as const;
-const captions = {
-  graphics: 'Social graphic. Format, purpose and size to come.',
-  designs: 'Layout or brand system. To come.',
-  motion: 'AI motion piece. To come.',
-  reels: 'Reel. To come.',
-};
-const swatches = [['Ink', '#141414'], ['Studio', '#EBEBE9'], ['Pink', '#FAD4E4'], ['Purple', '#E4DAF8'], ['Yellow', '#FCF0B4'], ['Sky', '#D2E8FB']];
-let plateNo = 1;
+// Work strip: one card per piece. Real files replace these as Dione sends them.
+const work = [
+  { kind: 'Graphic', n: '01', ratio: '4 / 5' },
+  { kind: 'Design', n: '02', ratio: '1 / 1' },
+  { kind: 'Graphic', n: '03', ratio: '4 / 5' },
+  { kind: 'AI motion', n: '04', ratio: '16 / 10' },
+  { kind: 'Design', n: '05', ratio: '1 / 1' },
+  { kind: 'Reel', n: '06', ratio: '9 / 16' },
+  { kind: 'Graphic', n: '07', ratio: '1 / 1' },
+  { kind: 'Design', n: '08', ratio: '4 / 5' },
+  { kind: 'AI motion', n: '09', ratio: '16 / 10' },
+  { kind: 'Reel', n: '10', ratio: '9 / 16' },
+];
 ---
-<section id="creative" class="spread" aria-labelledby="creative-title">
+<!-- Work showcase: portrait on the studio floor, title split around it, work cards sliding across the middle. -->
+<section id="creative" class="spread showcase" aria-labelledby="creative-title">
   <div class="wrap">
-    <RunningHead num="04" title="Portfolio" swatch="yellow" />
-    <div class="grid open">
-      <h2 id="creative-title" class="t-headline open__h" data-reveal>Built to be <em>seen.</em></h2>
-      <p class="t-deck open__deck" data-reveal><span class="tbd">[Draft]</span> Graphics, designs, motion and reels. Each one with the thinking behind it.</p>
-    </div>
-
-    <div class="tabs" role="tablist" aria-label="Formats" data-tabs>
-      {creativeTabs.map((t, i) => (
-        <button role="tab" id={`tab-${t.id}`} aria-controls={`panel-${t.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} class="tab">
-          {t.label}<sup>{String(t.count).padStart(2, '0')}</sup>
-        </button>
-      ))}
-    </div>
+    <RunningHead num="04" title="Socials & creative" swatch="yellow" />
   </div>
 
-  {creativeTabs.map((t) => (
-    <div role="tabpanel" id={`panel-${t.id}`} aria-labelledby={`tab-${t.id}`} class="wrap panel">
-      <div class="gallery">
-        {layouts[t.id].map(([span, ratio, offset], i) => (
-          <div class="g-item" style={`--span:${span};--off:${offset}px`}>
-            {t.id === 'designs' && i === 0 ? (
-              <Plate num={String(plateNo++).padStart(2, '0')} caption="Brand system · Dioné · type, palette and mark" ratio={ratio} accent="yellow">
-                <div class="brand">
-                  <Logo size={40} />
-                  <p class="brand__type"><span class="b1">Aa</span><span class="b2">Aa</span><span class="b3">AA</span></p>
-                  <ul class="brand__sw">{swatches.map(([n, hex]) => <li><span style={`background:${hex}`}></span>{n}</li>)}</ul>
-                </div>
-              </Plate>
-            ) : (
-              <Plate num={String(plateNo++).padStart(2, '0')} caption={captions[t.id]} ratio={ratio} accent={i === 0 ? 'yellow' : undefined} />
-            )}
-          </div>
-        ))}
-      </div>
+  <div class="stage">
+    <h2 id="creative-title" class="sr-only">Socials and creative work</h2>
+    {['tl', 'tr', 'bl', 'br'].map((pos) => (
+      <svg class={`mark mark--${pos}`} aria-hidden="true" width="44" height="18" viewBox="0 0 44 18" fill="none" stroke="currentColor" stroke-width="1"><circle cx="9" cy="9" r="5" /><circle cx="9" cy="9" r="1.6" fill="currentColor" /><circle cx="35" cy="9" r="6" /><path d="M35 1v16M27 9h16" /></svg>
+    ))}
+
+    <p class="t-display ttl ttl--l" aria-hidden="true">Socials</p>
+    <p class="t-display ttl ttl--r" aria-hidden="true"><em>&amp;</em> Creative</p>
+
+    <div class="cred cred--l t-label">
+      <p>By Danielle Sellado</p>
+      <p>Graphics · designs<br />AI motion · reels</p>
     </div>
-  ))}
+    <div class="cred cred--r t-label">
+      <p>Social media strategy</p>
+      <p>Creative operations</p>
+    </div>
+
+    <figure class="portrait">
+      <div class="portrait__frame"><span class="t-label">Portrait · seated on the studio floor<br />Shoot to come</span></div>
+    </figure>
+
+    <div class="strip" aria-label="Work">
+      <ul class="strip__track">
+        {[0, 1].map((copy) => work.map((w) => (
+          <li class="card" style={`--ratio:${w.ratio}`} aria-hidden={copy === 1 ? 'true' : undefined}>
+            <span class="t-label card__tag">{w.kind} {w.n}</span>
+            <span class="card__tbd">To come</span>
+          </li>
+        )))}
+      </ul>
+    </div>
+
+    <p class="t-label foot foot--l">Plates 01–10</p>
+    <p class="t-label foot foot--r">Work to come from Dione</p>
+  </div>
 </section>
 <style>
-  em { font-style: italic; }
-  .open { margin-top: clamp(48px, 6vw, 88px); row-gap: 28px; align-items: end; }
-  @media (min-width: 900px) { .open__h { grid-column: 1 / span 7; } .open__deck { grid-column: 9 / -1; } }
+  em { font-style: italic; font-weight: 400; }
+  .showcase { padding-bottom: 0; overflow: hidden; }
 
-  .tabs { display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: clamp(48px, 5vw, 72px); padding-top: 16px; border-top: 1px solid var(--ink); }
-  .tab { padding: 0 0 4px; border: 0; border-bottom: 1px solid transparent; background: none; font-size: clamp(20px, 1.8vw, 26px); font-weight: 600; letter-spacing: -0.01em; color: var(--muted); cursor: pointer; }
-  .tab sup { font-size: 0.45em; font-weight: 500; letter-spacing: 0.1em; margin-left: 3px; }
-  .tab[aria-selected='true'] { color: var(--ink); border-bottom-color: var(--ink); font-style: italic; }
-  .panel { margin-top: 48px; }
-  .panel[hidden] { display: none; }
+  .stage { position: relative; height: clamp(760px, 100svh, 1000px); margin-top: 8px; color: var(--ink); }
 
-  /* Mobile: a swipe rail. Desktop: asymmetric 12-column layout. */
-  .gallery { display: grid; grid-auto-flow: column; grid-auto-columns: 78%; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 24px; }
-  .g-item { scroll-snap-align: start; }
-  @media (min-width: 900px) {
-    .gallery { grid-auto-flow: row; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-columns: auto; column-gap: var(--col-gap); row-gap: 72px; overflow: visible; align-items: start; }
-    .g-item { grid-column: span var(--span); margin-top: var(--off); }
+  .mark { position: absolute; color: var(--muted); z-index: 5; }
+  .mark--tl { top: 16px; left: var(--gutter); }
+  .mark--tr { top: 16px; right: var(--gutter); transform: scaleX(-1); }
+  .mark--bl { bottom: 16px; left: var(--gutter); }
+  .mark--br { bottom: 16px; right: var(--gutter); transform: scaleX(-1); }
+
+  .ttl { position: absolute; z-index: 3; top: 9%; margin: 0; font-size: clamp(64px, 10.5vw, 180px); white-space: nowrap; }
+  .ttl--l { left: var(--gutter); }
+  .ttl--r { right: var(--gutter); }
+
+  .cred { position: absolute; z-index: 3; top: calc(9% + clamp(64px, 10.5vw, 180px) + 12px); display: grid; gap: 10px; color: var(--ink); }
+  .cred p { margin: 0; }
+  .cred--l { left: var(--gutter); }
+  .cred--r { right: var(--gutter); text-align: right; }
+
+  /* Portrait sits on the studio floor, centre stage, with a soft contact shadow. */
+  .portrait { position: absolute; z-index: 1; left: 50%; bottom: 0; transform: translateX(-50%); margin: 0; width: min(38vw, 520px); height: 86%; }
+  .portrait::after { content: ''; position: absolute; left: 6%; right: 6%; bottom: -18px; height: 36px; border-radius: 50%; background: radial-gradient(closest-side, rgba(27, 30, 35, 0.22), transparent); }
+  .portrait__frame { height: 100%; display: grid; place-items: end center; padding-bottom: 40px; text-align: center; background: linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.35)); border-radius: 2px; }
+
+  .strip { position: absolute; z-index: 4; left: 0; right: 0; top: 50%; overflow: hidden; padding-block: 10px 24px; }
+  .strip__track { display: flex; align-items: center; gap: 16px; width: max-content; margin: 0; padding: 0; list-style: none; animation: slide 46s linear infinite; }
+  .strip:hover .strip__track { animation-play-state: paused; }
+  @keyframes slide { to { transform: translateX(calc(-50% - 8px)); } }
+
+  .card { position: relative; height: clamp(150px, 15vw, 230px); aspect-ratio: var(--ratio); background: var(--card); box-shadow: 0 14px 30px rgba(27, 30, 35, 0.14), 0 2px 6px rgba(27, 30, 35, 0.08); display: grid; place-items: center; }
+  .card__tag { position: absolute; left: 10px; top: 8px; color: var(--ink); }
+  .card__tbd { font-style: italic; font-size: 14px; color: var(--muted); }
+
+  .foot { position: absolute; z-index: 3; bottom: 48px; margin: 0; color: var(--ink); }
+  .foot--l { left: var(--gutter); }
+  .foot--r { right: var(--gutter); }
+
+  @media (max-width: 899px) {
+    .stage { height: 860px; }
+    .ttl { font-size: 17vw; }
+    .ttl--l { top: 40px; }
+    .ttl--r { top: calc(40px + 17vw); }
+    .cred { top: calc(40px + 34vw + 20px); }
+    .cred--r { display: none; }
+    .portrait { width: 74vw; height: 64%; }
+    .strip { top: 56%; }
+    .card { height: 140px; }
   }
-
-  .brand { width: 100%; height: 100%; padding: 8% 9%; background: var(--card); display: flex; flex-direction: column; justify-content: space-between; }
-  .brand__type { display: flex; gap: 18px; align-items: baseline; margin: 0; font-size: clamp(48px, 5vw, 80px); line-height: 1; }
-  .b1 { font-weight: 800; } .b2 { font-style: italic; } .b3 { font-size: 0.4em; letter-spacing: 0.2em; font-weight: 500; }
-  .brand__sw { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 12px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
-  .brand__sw li { display: flex; align-items: center; gap: 8px; }
-  .brand__sw span { width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--line); }
+  @media (prefers-reduced-motion: reduce) {
+    .strip { overflow-x: auto; }
+    .strip__track { animation: none; padding-inline: var(--gutter); }
+  }
 </style>

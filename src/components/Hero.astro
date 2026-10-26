@@ -1,31 +1,67 @@
 ---
-import SectionHead from './SectionHead.astro';
 import { site } from '../data/content';
 ---
+<!-- Magazine-opener hero: portrait on a light gray studio sweep, staggered Didone headline. -->
 <section id="intro" class="hero section grain" aria-labelledby="hero-title">
-  <div class="wrap hero__inner">
-    <SectionHead num="01" label="Introduction" note="Davao, PH · U.S. hours" />
-    <h1 id="hero-title" class="display hero__title">
-      <span class="hero__line" data-hero-line>{site.heroLine[0]}</span>
-      <span class="hero__line serif-i" data-hero-line><span class="hl hl--pink">{site.heroLine[1]}</span></span>
-    </h1>
-    <p class="hero__pos" data-reveal>
-      {site.positioning.map((p) => <span class="pos">{p}</span>)}
-    </p>
-    <a class="hero__cue" href="#partnership">
-      <span class="hand">scroll</span>
-      <svg aria-hidden="true" width="34" height="56" viewBox="0 0 34 56" fill="none" stroke="var(--heart)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 4 C 10 18, 24 30, 16 50"/><path d="M6 40 L16 51 L26 40"/></svg>
-    </a>
+  <div class="wrap hero__grid">
+    <figure class="hero__photo" data-reveal>
+      <div class="todo hero__todo">
+        <span class="todo__tag">Portrait · your shoot</span>
+        <span>seated, light gray studio</span>
+      </div>
+    </figure>
+
+    <div class="hero__copy">
+      <p class="label hero__kicker">Introduction (01) <span class="dot dot--pink" aria-hidden="true"></span> Danielle Sellado</p>
+      <h1 id="hero-title" class="display hero__title">
+        <span class="sr-only">{site.heroLine.join(' ')}</span>
+        <span aria-hidden="true">
+          <span class="ln" data-hero-line>Sharp enough</span>
+          <span class="ln in-1" data-hero-line>to run</span>
+          <span class="ln in-2" data-hero-line><em class="hl hl--pink">the day.</em></span>
+          <span class="ln small" data-hero-line>Creative enough</span>
+          <span class="ln small in-1" data-hero-line>to turn ideas into</span>
+          <span class="ln small in-3" data-hero-line><em class="hl hl--sky">execution.</em></span>
+        </span>
+      </h1>
+      <p class="lede hero__deck" data-reveal>
+        Executive Assistant to founders and leaders. <b>Danielle Sellado</b>, known as <b>Dioné</b>, runs the operations behind the business and the creative work in front of it.
+      </p>
+      <p class="label hero__credits" data-reveal>
+        {site.positioning.join(' · ')}<br />Based in Davao, PH · Working U.S. hours
+      </p>
+    </div>
   </div>
+  <a class="hero__cue hand" href="#partnership">scroll ↓</a>
 </section>
 <style>
-  .hero { min-height: 100svh; display: flex; align-items: stretch; padding-block: calc(var(--nav-h) + 32px) 48px; overflow: hidden; }
-  .hero__inner { display: flex; flex-direction: column; }
-  .hero__title { font-size: clamp(48px, 8.4vw, 148px); max-width: 15ch; margin-block: auto 0; }
-  .hero__line { display: block; }
-  .hero__line.serif-i { margin-top: 0.08em; }
-  .hero__pos { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: clamp(28px, 4vw, 48px) 0 0; font-size: clamp(16px, 1.5vw, 20px); font-weight: 600; color: var(--muted); }
-  .pos + .pos::before { content: '·'; margin-right: 14px; color: var(--heart); }
-  .hero__cue { align-self: flex-end; display: flex; align-items: flex-end; gap: 6px; margin-top: auto; padding-top: 48px; text-decoration: none; color: var(--muted); }
-  .hero__cue .hand { font-size: 30px; transform: rotate(-4deg); }
+  .hero {
+    min-height: 100svh;
+    padding-block: calc(var(--nav-h) + 24px) 56px;
+    overflow: hidden;
+    /* Light gray studio sweep: brighter where the light hits, falling off at the edges. */
+    background: radial-gradient(120% 90% at 32% 28%, #f7f7f5 0%, #e9e9e6 52%, #d7d7d3 100%);
+  }
+  .hero__grid { display: grid; gap: 40px; align-items: end; min-height: calc(100svh - var(--nav-h) - 80px); }
+  @media (min-width: 900px) { .hero__grid { grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 5vw, 96px); } }
+
+  .hero__photo { margin: 0; order: 2; }
+  .hero__todo { aspect-ratio: 4 / 5; max-height: 72svh; width: 100%; }
+  @media (min-width: 900px) { .hero__photo { order: 0; align-self: end; } }
+
+  .hero__copy { align-self: center; }
+  .hero__kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 28px; }
+  .hero__title { font-size: min(12vw, 136px); }
+  @media (min-width: 900px) { .hero__title { font-size: min(8.2vw, 136px); } }
+  .ln { display: block; white-space: nowrap; }
+  .ln em { font-style: italic; font-weight: 700; padding: 0 0.06em; }
+  .small { font-size: 0.46em; line-height: 0.98; font-weight: 700; }
+  .small:first-of-type, .ln.small { margin-top: 0; }
+  .ln:not(.small) + .small { margin-top: 0.5em; }
+  .in-1 { padding-left: 1.1em; }
+  .in-2 { padding-left: 0.5em; }
+  .in-3 { padding-left: 2.2em; }
+  .hero__deck { max-width: 26em; margin: 36px 0 0; }
+  .hero__credits { margin: 20px 0 0; line-height: 1.9; }
+  .hero__cue { position: absolute; right: var(--gutter); bottom: 24px; z-index: 1; font-size: 18px; text-decoration: none; color: var(--muted); }
 </style>

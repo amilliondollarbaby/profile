@@ -1,19 +1,15 @@
-@import '@fontsource/inter-tight/400.css';
-@import '@fontsource/inter-tight/600.css';
-@import '@fontsource/inter-tight/800.css';
-@import '@fontsource/dm-serif-display/400.css';
-@import '@fontsource/dm-serif-display/400-italic.css';
-@import '@fontsource/caveat/600.css';
-@import '@fontsource/caveat/700.css';
+/* One family, fashion-magazine style: Bodoni Moda with optical sizes, so small text stays sturdy. */
+@import '@fontsource-variable/bodoni-moda/opsz.css';
+@import '@fontsource-variable/bodoni-moda/opsz-italic.css';
 
 :root {
-  /* Light gray editorial + cotton candy accents (rebrand, Oct 2026). */
-  --paper: #efeeeb;
-  --card: #ffffff;
-  --ink: #17151c;
-  --body-ink: #3e3a45;
-  --muted: #6e6a75;
-  --line: rgba(23, 21, 28, 0.12);
+  /* Light gray studio + cotton candy accents (rebrand, Oct 2026). */
+  --paper: #ebebe9;
+  --card: #f7f7f6;
+  --ink: #141414;
+  --body-ink: #3a3a3a;
+  --muted: #6b6b6b;
+  --line: rgba(20, 20, 20, 0.14);
   --cc-pink: #fad4e4;
   --cc-purple: #e4daf8;
   --cc-yellow: #fcf0b4;
@@ -21,9 +17,7 @@
   --heart: #e0216f; /* the scribble heart only */
   --accent-text: #b8175a; /* serif accents, readable on white and every pastel */
 
-  --sans: 'Inter Tight', system-ui, sans-serif;
-  --serif: 'DM Serif Display', Georgia, serif;
-  --hand: 'Caveat', cursive;
+  --serif: 'Bodoni Moda Variable', 'Bodoni 72', Didot, Georgia, serif;
 
   /* One outer margin everywhere. 80px on desktop, like the 1080px carousels. */
   --gutter: clamp(20px, 5.5vw, 80px);
@@ -45,10 +39,11 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--sans);
+  font-family: var(--serif);
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
 }
 
 img,
@@ -139,24 +134,25 @@ button {
 /* Type */
 .display {
   margin: 0;
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.88;
 }
 .serif-i {
-  font-family: var(--serif);
+  font-style: italic;
+}
+/* Margin notes: small italic, like a magazine caption. */
+.hand {
   font-style: italic;
   font-weight: 400;
-  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
-.hand {
-  font-family: var(--hand);
-  font-weight: 700;
-  line-height: 1.05;
-}
+/* Credit-line labels: tiny spaced caps. */
 .label {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--muted);
 }
 .mono {
@@ -166,8 +162,18 @@ button {
 }
 .lede {
   max-width: 34em;
-  font-size: clamp(18px, 1.6vw, 22px);
+  font-size: clamp(18px, 1.5vw, 21px);
+  font-style: italic;
+  line-height: 1.45;
   color: var(--body-ink);
+}
+.lede b,
+.caps {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.86em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 /* Pills */
@@ -175,10 +181,12 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 18px;
+  padding: 11px 20px;
   border-radius: 999px;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
 }

@@ -33,7 +33,9 @@ Be good to her. She calls her assistant "Babbi". 💜
 | Freelance Executive Assistant | Self-employed | Jan 2020 – Dec 2023 | Inbox, calendar and client communication for U.S. business owners; managed business Facebook pages (posting, captions, Canva graphics) |
 
 - **Also:** she runs a small hiring business on the side and trains VAs.
-- **Headline numbers:** 6+ years · 3 executive coaches · 70+ CEO coaching clients · 8–10+ real estate agents supported
+- **Headline numbers (updated Oct 26 2026, Dione's call):** 6+ years · Social Media Manager now · 4 years running business Facebook pages · 3 executive coaches supported.
+  **Never headline "70+ CEO coaching clients" or "8–10+ real estate agents":** visitors read them as her own clients. They were the coaching program's leaders and the real estate team she supported. Mention them only in context, if at all.
+- **Emphasis:** lead with her social media and creative background. Real estate stays in the background (company name and role title only, with the creative-leaning duties).
 - **CRM and real estate platforms she has used:** Brivity, Realtor.com, Follow Up Boss, BoomTown, Mojo Sells, GoHighLevel
 - **Ops and AI tools she has used:** Google Workspace, Airtable, Calendly, Zapier, Boomerang, ChatGPT, AssemblyAI, Claude, Canva
 - **English:** C1 (Advanced)

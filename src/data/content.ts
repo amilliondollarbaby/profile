@@ -24,11 +24,13 @@ export const sections = [
   { id: 'contact', num: '08', label: "Let’s meet" },
 ] as const;
 
+// Lead with the social and creative side. Only facts that describe her own work:
+// never present the coaching program's leaders or the real estate team as her clients.
 export const stats = [
-  { value: '6+', label: 'years' },
-  { value: '3', label: 'executive coaches' },
-  { value: '70+', label: 'CEO coaching clients' },
-  { value: '8–10+', label: 'real estate agents' },
+  { value: '6+', label: 'years of experience' },
+  { value: 'Now', label: 'Social Media Manager, global consumer brand' },
+  { value: '4 yrs', label: 'running business Facebook pages' },
+  { value: '3', label: 'executive coaches supported' },
 ];
 
 // Section 02 samples: one "module" per engagement.
@@ -39,7 +41,7 @@ export const modules = [
     role: 'Social Media Manager',
     org: 'D2C Brand (U.S.)',
     dates: 'Jan 2025 – Present',
-    trusted: ["Supports a global consumer brand’s social and creative team", 'Helps bring launches and content ideas to life', 'Creative operations'],
+    trusted: ['Helps bring launches and content ideas to life for a global consumer brand’s social media and creative team'],
   },
   {
     id: 'DIONÉ–OPS–02',
@@ -47,7 +49,7 @@ export const modules = [
     role: 'Director of Operations & Brand Specialist',
     org: 'Coast to Coast Property Partners',
     dates: 'Sep 2022 – Dec 2025',
-    trusted: ['Supported 8–10+ agents', 'Audited agent pipelines and graded activity', 'Built SOPs and VA training', 'Autoplans and email campaigns'],
+    trusted: ['Created autoplans and email campaigns, built SOPs and VA training'],
   },
   {
     id: 'DIONÉ–OPS–03',
@@ -55,7 +57,7 @@ export const modules = [
     role: 'Executive Assistant & CEO Coaching Admin',
     org: 'Livian (U.S.)',
     dates: 'Jan 2021 – Sep 2024',
-    trusted: ['Supported three executive coaches', 'CEO coaching workflow for 70+ leaders', 'Confidential client records'],
+    trusted: ['Supported three executive coaches and their CEO coaching program'],
   },
   {
     id: 'DIONÉ–OPS–04',
@@ -63,7 +65,7 @@ export const modules = [
     role: 'Freelance Executive Assistant',
     org: 'Self-employed',
     dates: 'Jan 2020 – Dec 2023',
-    trusted: ['Client communication for U.S. business owners', 'Ran business Facebook pages end to end'],
+    trusted: ['Ran business Facebook pages for U.S. business owners: posting, captions and Canva graphics'],
   },
   {
     id: 'DIONÉ–OPS–05',

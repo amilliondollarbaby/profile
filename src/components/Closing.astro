@@ -1,0 +1,56 @@
+---
+import Logo from './Logo.astro';
+import Todo from './Todo.astro';
+import { profiles, site } from '../data/content';
+const marquee = Array.from({ length: 6 }, () => "Let’s work");
+---
+<section id="contact" class="closing section section--dark grain" aria-labelledby="contact-title">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      {[0, 1].map(() => (
+        <span class="marquee__set">{marquee.map((m) => <span>{m} <span class="serif-i yellow">—</span></span>)}</span>
+      ))}
+    </div>
+  </div>
+
+  <div class="wrap">
+    <span class="label">Let’s meet (08)</span>
+    <h2 id="contact-title" class="display h2">Got a business that needs<br /><span class="serif-i yellow">both sides running?</span></h2>
+    <p class="lede">[DRAFT] Tell me what’s on your plate. We’ll see if I’m the right fit.</p>
+    <Todo tag="closing copy" class="closing__todo">a few personal touches, when Dione’s ready to share</Todo>
+
+    <div class="cta">
+      <a class="pill pill--yellow big" href={site.bookingUrl || '#'} aria-disabled={site.bookingUrl ? undefined : 'true'}>
+        Book a call {!site.bookingUrl && <span class="mono">(TODO: link)</span>}
+      </a>
+    </div>
+
+    <footer class="foot">
+      <Logo size={36} />
+      <ul class="links">
+        {profiles.map((p) => <li>{p.url ? <a href={p.url} rel="noopener" target="_blank">{p.label} ↗</a> : <span class="mono">{p.label}: TODO</span>}</li>)}
+        <li>{site.email ? <a href={`mailto:${site.email}`}>{site.email}</a> : <span class="mono">email: TODO</span>}</li>
+      </ul>
+      <span class="label">© {new Date().getFullYear()} {site.fullName}</span>
+    </footer>
+  </div>
+</section>
+<style>
+  .closing { padding-top: 0; overflow: hidden; }
+  .marquee { overflow: hidden; padding-block: clamp(40px, 6vw, 80px); border-bottom: 1.5px solid rgba(205, 191, 230, 0.2); margin-bottom: clamp(64px, 8vw, 120px); }
+  .marquee__track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+  .marquee__set { display: flex; font-size: clamp(56px, 9vw, 150px); font-weight: 800; letter-spacing: -0.045em; line-height: 1; white-space: nowrap; }
+  .marquee__set > span { padding-right: 0.35em; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .yellow { color: var(--yellow); }
+  .h2 { margin-top: 24px; font-size: clamp(40px, 6vw, 96px); }
+  .lede { margin-top: 24px; }
+  :global(.closing__todo) { margin-top: 24px; max-width: 520px; }
+  .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; margin-top: 40px; }
+  .big { padding: 18px 30px; font-size: 18px; }
+  .cta__note { font-size: 28px; color: var(--lavender); transform: rotate(-3deg); }
+  .foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; margin-top: clamp(80px, 10vw, 140px); padding-top: 32px; border-top: 1.5px solid rgba(205, 191, 230, 0.2); }
+  .links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 0; padding: 0; list-style: none; font-weight: 600; }
+  .links a { text-decoration: none; }
+  .links a:hover { color: var(--yellow); }
+</style>

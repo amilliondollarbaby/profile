@@ -1,0 +1,33 @@
+---
+import SectionHead from './SectionHead.astro';
+import Todo from './Todo.astro';
+---
+<section id="lab" class="section section--light grain" aria-labelledby="lab-title">
+  <div class="wrap">
+    <SectionHead num="07" label="Lab" note="3D passion projects" />
+    <div class="intro">
+      <h2 id="lab-title" class="display h2" data-reveal>What I build<br /><span class="serif-i accent">when nobody’s asking.</span></h2>
+      <p class="lede" data-reveal>[DRAFT] 3D products and experiments. Each one with a note on why it exists.</p>
+    </div>
+  </div>
+  <div class="rail lab">
+    {[1, 2, 3, 4, 5].map((n) => (
+      <article class="piece">
+        <Todo tag={`3D render 0${n}`} class="piece__art">waiting on Dione’s renders</Todo>
+        <p class="mono piece__id">DIONÉ–LAB–0{n} · STATUS: IN PROGRESS</p>
+        <p class="piece__why"><span class="hand">why I made this:</span> <span class="mono">TODO</span></p>
+      </article>
+    ))}
+  </div>
+</section>
+<style>
+  .intro { display: grid; gap: 24px 64px; align-items: end; }
+  .h2 { font-size: clamp(40px, 6vw, 96px); }
+  .accent { color: var(--pink-deep); }
+  @media (min-width: 900px) { .intro { grid-template-columns: 1.4fr 1fr; } }
+  .lab { grid-auto-columns: min(80vw, 420px); margin-top: clamp(40px, 5vw, 64px); }
+  .piece :global(.piece__art) { aspect-ratio: 1; }
+  .piece__id { margin: 16px 2px 4px; color: var(--muted); }
+  .piece__why { margin: 0 2px; }
+  .piece__why .hand { font-size: 26px; color: var(--pink-deep); }
+</style>

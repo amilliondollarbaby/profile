@@ -1,0 +1,9 @@
+---
+// A clearly marked slot for content Dione still has to send.
+interface Props { tag?: string; class?: string; style?: string; }
+const { tag = 'TODO', class: cls, style } = Astro.props;
+---
+<div class:list={['todo', cls]} style={style}>
+  <span class="todo__tag">{tag}</span>
+  <span><slot /></span>
+</div>

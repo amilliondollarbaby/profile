@@ -1,0 +1,15 @@
+---
+// Numbered index heading, e.g. "Socials & creative (04)".
+interface Props { num: string; label: string; note?: string; }
+const { num, label, note } = Astro.props;
+---
+<div class="head" data-reveal>
+  <span class="label">{label} <span class="num">({num})</span></span>
+  <span class="rule" aria-hidden="true"></span>
+  {note && <span class="label">{note}</span>}
+</div>
+<style>
+  .head { display: flex; align-items: center; gap: 16px; margin-bottom: clamp(40px, 6vw, 72px); }
+  .num { font-variant-numeric: tabular-nums; }
+  .rule { flex: 1; height: 1.5px; background: currentColor; opacity: 0.18; }
+</style>

@@ -1,0 +1,11 @@
+---
+import Heart from './Heart.astro';
+interface Props { size?: number; }
+const { size = 32 } = Astro.props;
+---
+<span class="logo" style={`--s:${size}px`}>
+  <span class="serif-i">Dioné</span><Heart size={size * 0.95} />
+</span>
+<style>
+  .logo { display: inline-flex; align-items: center; gap: 0.2em; font-size: var(--s); line-height: 1; }
+</style>

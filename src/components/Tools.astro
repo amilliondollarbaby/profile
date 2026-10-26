@@ -1,0 +1,29 @@
+---
+import SectionHead from './SectionHead.astro';
+import { tools } from '../data/content';
+---
+<section id="tools" class="section section--yellow grain" aria-labelledby="tools-title">
+  <div class="wrap">
+    <SectionHead num="06" label="Tools" note="logos: TODO" />
+    <h2 id="tools-title" class="display h2" data-reveal>The software, <span class="serif-i">for the record:</span></h2>
+    <div class="groups">
+      {Object.entries(tools).map(([group, list]) => (
+        <div class="group" data-reveal>
+          <h3 class="hand group__name">{group}</h3>
+          <ul class="chips">
+            {list.map((t, i) => <li class:list={['chip', t.startsWith('TODO') && 'is-todo']} style={`--r:${[-2, 1, -1, 2, 0][i % 5]}deg`}>{t}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .h2 { font-size: clamp(36px, 4.6vw, 72px); }
+  .groups { display: grid; gap: 40px; margin-top: clamp(40px, 5vw, 64px); }
+  @media (min-width: 900px) { .groups { grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; } }
+  .group__name { margin: 0 0 12px; font-size: 36px; color: var(--pink-deep); transform: rotate(-3deg); transform-origin: left; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .chip { padding: 9px 16px; border-radius: 999px; background: var(--white); font-size: 15px; font-weight: 600; transform: rotate(var(--r)); box-shadow: 0 6px 14px rgba(45, 27, 78, 0.12); }
+  .chip.is-todo { background: transparent; border: 1.5px dashed var(--purple); font-family: ui-monospace, Menlo, monospace; font-size: 13px; box-shadow: none; }
+</style>

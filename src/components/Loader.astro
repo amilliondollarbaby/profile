@@ -1,0 +1,24 @@
+---
+import Heart from './Heart.astro';
+---
+<!-- Loading intro: the scribble heart draws itself while the counter runs. JS removes it; without JS it never shows. -->
+<div class="loader" id="loader" aria-hidden="true">
+  <Heart size={120} class="loader__heart" />
+  <div class="loader__row">
+    <span class="serif-i">Dioné</span>
+    <span class="loader__pct"><span id="loader-pct">0</span>%</span>
+  </div>
+</div>
+<style>
+  .loader {
+    display: none;
+    position: fixed; inset: 0; z-index: 100;
+    place-items: center; align-content: center; gap: 28px;
+    background: var(--purple); color: var(--white);
+  }
+  :global(.js-motion:not(.skip-loader)) .loader { display: grid; }
+  .loader__row { display: flex; align-items: baseline; gap: 18px; font-size: 22px; }
+  .loader__row .serif-i { font-size: 36px; }
+  .loader__pct { font-weight: 600; color: var(--lavender); font-variant-numeric: tabular-nums; min-width: 3.5ch; }
+  .loader :global(.loader__heart path) { stroke-dasharray: 1; stroke-dashoffset: 1; }
+</style>

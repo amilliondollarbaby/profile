@@ -1,0 +1,32 @@
+---
+import '../styles/global.css';
+import { site } from '../data/content';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.title}</title>
+    <meta name="description" content={site.description} />
+    <meta name="theme-color" content="#2D1B4E" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={site.title} />
+    <meta property="og:description" content={site.description} />
+    <!-- TODO: og:image in her brand, and canonical URL once the domain is set -->
+    <script is:inline>
+      // Motion only when the visitor allows it. The loader plays once per visit.
+      (function () {
+        var d = document.documentElement;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        d.classList.add('js-motion');
+        try { if (sessionStorage.getItem('dione-loaded')) d.classList.add('skip-loader'); } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="sr-only" href="#partnership">Skip intro</a>
+    <slot />
+  </body>
+</html>

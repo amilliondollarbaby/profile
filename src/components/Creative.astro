@@ -81,16 +81,16 @@ const work = [
 
   /* Portrait sits on the studio floor, centre stage, with a soft contact shadow. */
   .portrait { position: absolute; z-index: 1; left: 50%; bottom: 0; transform: translateX(-50%); margin: 0; width: min(38vw, 520px); height: 86%; }
-  .portrait::after { content: ''; position: absolute; left: 6%; right: 6%; bottom: -18px; height: 36px; border-radius: 50%; background: radial-gradient(closest-side, rgba(27, 30, 35, 0.22), transparent); }
-  .portrait__frame { height: 100%; display: grid; place-items: end center; padding-bottom: 40px; text-align: center; background: linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.35)); border-radius: 2px; }
+  .portrait::after { content: ''; position: absolute; left: 6%; right: 6%; bottom: -18px; height: 36px; border-radius: 50%; background: radial-gradient(closest-side, rgba(90, 60, 120, 0.22), transparent); }
+  .portrait__frame { height: 100%; display: grid; place-items: end center; padding-bottom: 40px; text-align: center; background: var(--frame-fill); border: 1px solid var(--frame-line); border-radius: var(--radius); }
 
   .strip { position: absolute; z-index: 4; left: 0; right: 0; top: 50%; overflow: hidden; padding-block: 10px 24px; }
   .strip__track { display: flex; align-items: center; gap: 16px; width: max-content; margin: 0; padding: 0; list-style: none; animation: slide 46s linear infinite; }
   .strip:hover .strip__track { animation-play-state: paused; }
   @keyframes slide { to { transform: translateX(calc(-50% - 8px)); } }
 
-  .card { position: relative; height: clamp(150px, 15vw, 230px); aspect-ratio: var(--ratio); background: var(--card); box-shadow: 0 14px 30px rgba(27, 30, 35, 0.14), 0 2px 6px rgba(27, 30, 35, 0.08); display: grid; place-items: center; }
-  .card__tag { position: absolute; left: 10px; top: 8px; color: var(--ink); }
+  .card { position: relative; height: clamp(150px, 15vw, 230px); aspect-ratio: var(--ratio); border-radius: var(--radius); background: var(--frame-fill); border: 1px solid var(--frame-line); box-shadow: 0 18px 40px rgba(90, 60, 120, 0.14); display: grid; place-items: center; }
+  .card__tag { position: absolute; left: 14px; top: 10px; color: var(--ink); }
   .card__tbd { font-style: italic; font-size: 14px; color: var(--muted); }
 
   .foot { position: absolute; z-index: 3; bottom: 48px; margin: 0; color: var(--ink); }

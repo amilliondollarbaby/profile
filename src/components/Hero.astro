@@ -2,38 +2,46 @@
 import Plate from './Plate.astro';
 import { site } from '../data/content';
 ---
-<!-- Cover: portrait plate on the light gray studio, staggered Didone headline. -->
+<!-- Cover: floating photo frames on the pastel set, the main portrait in front, staggered headline. -->
 <section id="intro" class="cover" aria-labelledby="hero-title">
   <div class="wrap">
     <div class="strap" data-reveal>
       {site.positioning.map((p) => <p class="t-label">{p}</p>)}
     </div>
     <hr class="rule rule--ink" />
+  </div>
 
-    <div class="grid cover__grid">
-      <div class="cover__photo">
-        <Plate num="00" label="Cover" caption="Portrait. Seated, light gray studio. Shoot to come." accent="pink" />
-      </div>
-
-      <div class="cover__copy">
-        <h1 id="hero-title" class="t-display cover__title">
-          <span class="sr-only">{site.heroLine.join(' ')}</span>
-          <span aria-hidden="true">
-            <span class="ln" data-hero-line>Sharp enough</span>
-            <span class="ln in-a" data-hero-line>to run</span>
-            <span class="ln in-b" data-hero-line><em>the day.</em></span>
-          </span>
-        </h1>
-        <p class="t-headline cover__sub" aria-hidden="true">
-          <span class="ln" data-hero-line>Creative enough to turn</span>
-          <span class="ln in-c" data-hero-line>ideas into <em>execution.</em></span>
-        </p>
-        <p class="t-deck cover__deck" data-reveal>
-          Executive Assistant to founders and leaders. <b>Danielle Sellado</b>, known as <b>Dioné</b>, runs the operations behind the business and the creative work in front of it.
-        </p>
-      </div>
+  <div class="wrap stage">
+    <div class="copy">
+      <h1 id="hero-title" class="t-display title">
+        <span class="sr-only">{site.heroLine.join(' ')}</span>
+        <span aria-hidden="true">
+          <span class="ln" data-hero-line>Sharp enough</span>
+          <span class="ln in-a" data-hero-line>to run</span>
+          <span class="ln in-b" data-hero-line><em>the day.</em></span>
+        </span>
+      </h1>
+      <p class="t-headline sub" aria-hidden="true">
+        <span class="ln" data-hero-line>Creative enough to turn</span>
+        <span class="ln in-c" data-hero-line>ideas into <em>execution.</em></span>
+      </p>
+      <p class="t-deck deck" data-reveal>
+        Executive Assistant to founders and leaders. <b>Danielle Sellado</b>, known as <b>Dioné</b>, runs the operations behind the business and the creative work in front of it.
+      </p>
     </div>
 
+    <!-- Floating frames. Shapes from the reference: oval close-up, rounded rectangles, an empty pill. -->
+    <div class="collage" aria-hidden="true">
+      <Plate num="00" label="" caption="" shape="oval" ratio="3 / 4" class="f f-oval"><span class="t-label">Close-up</span></Plate>
+      <Plate num="00" label="" caption="" ratio="4 / 3" class="f f-a"><span class="t-label">Detail</span></Plate>
+      <Plate num="00" label="" caption="" ratio="3 / 4" class="f f-b"><span class="t-label">Pose</span></Plate>
+      <Plate num="00" label="" caption="" ratio="4 / 3" class="f f-c"><span class="t-label">Pose</span></Plate>
+      <Plate num="00" label="" caption="" shape="pill" ratio="3 / 1" class="f f-pill"><span></span></Plate>
+      <Plate num="00" label="" caption="" ratio="21 / 9" class="f f-main"><span class="t-label">Main portrait · lying on the studio bench · shoot to come</span></Plate>
+    </div>
+  </div>
+
+  <div class="wrap">
     <hr class="rule" />
     <div class="foot">
       <p class="t-label">Davao, PH · Working U.S. hours</p>
@@ -43,29 +51,42 @@ import { site } from '../data/content';
 </section>
 <style>
   .cover { padding-top: calc(var(--nav-h) + 8px); padding-bottom: 28px; min-height: 100svh; display: flex; flex-direction: column; }
-  .cover > .wrap { flex: 1; display: flex; flex-direction: column; }
   .strap { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 12px; }
   .strap .t-label { color: var(--ink); }
 
-  .cover__grid { flex: 1; row-gap: 48px; align-items: end; padding-block: clamp(32px, 4vw, 56px); }
-  .cover__photo { order: 2; }
-  .cover__copy { order: 1; }
-  @media (min-width: 900px) {
-    .cover__photo { order: 0; grid-column: 1 / span 5; }
-    .cover__copy { grid-column: 6 / -1; align-self: center; }
-  }
-
-  .cover__title { font-size: min(13vw, 168px); }
-  .cover__sub { margin-top: 0.5em; font-size: min(6.2vw, 72px); }
+  .stage { position: relative; flex: 1; display: grid; gap: 40px; padding-block: clamp(28px, 4vw, 48px); }
+  .copy { position: relative; z-index: 3; }
+  .title { font-size: min(13vw, 150px); }
+  .sub { margin-top: 0.45em; font-size: min(6.2vw, 60px); }
   .ln { display: block; white-space: nowrap; }
   em { font-style: italic; }
   .in-a { padding-left: 1.15em; }
   .in-b { padding-left: 0.45em; }
   .in-c { padding-left: 1.6em; }
-  .cover__deck { max-width: 24em; margin-top: clamp(28px, 3vw, 44px); margin-left: auto; }
+  .deck { max-width: 22em; margin-top: clamp(24px, 3vw, 40px); }
+
+  .collage { position: relative; height: 560px; }
+  .collage :global(.f) { position: absolute; }
+  .collage :global(.f .t-label) { color: var(--body-ink); text-align: center; padding: 0 12px; }
+  .collage :global(.f-oval) { left: 22%; top: 0; width: 46%; z-index: 1; }
+  .collage :global(.f-a) { left: 0; top: 30px; width: 30%; }
+  .collage :global(.f-b) { right: 0; top: 150px; width: 22%; }
+  .collage :global(.f-pill) { right: 4%; top: 20px; width: 26%; }
+  .collage :global(.f-main) { left: -4%; right: -4%; bottom: 0; z-index: 2; }
+  .collage :global(.f-c) { display: none; }
+
   @media (min-width: 900px) {
-    .cover__title { font-size: min(7.4vw, 132px); }
-    .cover__sub { font-size: min(3.7vw, 64px); }
+    .stage { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); align-items: center; }
+    .copy { grid-column: 1 / span 6; align-self: start; padding-top: 2vw; }
+    .title { font-size: min(6.4vw, 124px); }
+    .sub { font-size: min(3.1vw, 56px); }
+    .collage { position: absolute; inset: 0 var(--gutter) 0 calc(var(--gutter) + 0.47 * (100% - 2 * var(--gutter))); height: auto; }
+    .collage :global(.f-oval) { left: 30%; top: 2%; width: 34%; }
+    .collage :global(.f-a) { left: 0; top: 14%; width: 26%; }
+    .collage :global(.f-b) { left: 6%; top: 44%; width: 16%; }
+    .collage :global(.f-pill) { right: 0; top: 4%; width: 26%; }
+    .collage :global(.f-main) { left: -8%; right: 0; bottom: 0; width: auto; }
+    .collage :global(.f-c) { display: block; right: 0; top: 30%; width: 22%; }
   }
 
   .foot { display: flex; justify-content: space-between; padding-top: 12px; }

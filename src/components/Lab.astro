@@ -2,7 +2,7 @@
 import RunningHead from './RunningHead.astro';
 import Plate from './Plate.astro';
 const pieces = [
-  { span: 7, ratio: '4 / 5', off: 0, accent: 'purple' as const },
+  { span: 7, ratio: '4 / 5', off: 0 },
   { span: 5, ratio: '1 / 1', off: 180 },
   { span: 4, ratio: '4 / 5', off: 0 },
   { span: 4, ratio: '1 / 1', off: 120 },
@@ -19,7 +19,7 @@ const pieces = [
     <div class="lab">
       {pieces.map((p, i) => (
         <div class="lab__item" style={`--span:${p.span};--off:${p.off}px`}>
-          <Plate num={String(24 + i)} caption="3D render. Why I made this: to come." ratio={p.ratio} accent={p.accent} />
+          <Plate num={String(24 + i)} caption="3D render. Why I made this: to come." ratio={p.ratio} />
         </div>
       ))}
     </div>

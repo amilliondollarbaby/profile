@@ -1,14 +1,14 @@
-<!-- Loading intro: a dark studio, a counter, then the lights come up. JS removes it; without JS it never shows. -->
+<!-- Loading intro: the top of the backdrop, a counter, then it fades into the set. JS removes it; without JS it never shows. -->
 <div class="loader" id="loader" aria-hidden="true">
   <p class="loader__name">Danielle Sellado</p>
-  <p class="t-label loader__row"><span>Studio lights</span><span><span id="loader-pct">0</span>%</span></p>
+  <p class="t-label loader__row"><span>Loading</span><span><span id="loader-pct">0</span>%</span></p>
   <span class="loader__bar"><span id="loader-bar"></span></span>
 </div>
 <style>
-  .loader { display: none; position: fixed; inset: 0; z-index: 100; place-content: center; justify-items: center; gap: 18px; background: #16181c; color: #fbfcfd; }
+  .loader { display: none; position: fixed; inset: 0; z-index: 100; place-content: center; justify-items: center; gap: 18px; background: #c9b7ea; color: var(--ink); }
   :global(.js-motion:not(.skip-loader)) .loader { display: grid; }
   .loader__name { margin: 0; font-family: var(--display); font-variation-settings: 'SOFT' 100, 'WONK' 1; font-weight: 900; font-size: clamp(40px, 6vw, 88px); letter-spacing: -0.02em; line-height: 1; }
-  .loader__row { display: flex; justify-content: space-between; width: min(320px, 70vw); color: #aab1bb; font-variant-numeric: tabular-nums; }
-  .loader__bar { width: min(320px, 70vw); height: 1px; background: rgba(255, 255, 255, 0.18); }
-  .loader__bar span { display: block; height: 100%; width: 0; background: #fbfcfd; }
+  .loader__row { display: flex; justify-content: space-between; width: min(320px, 70vw); color: var(--body-ink); font-variant-numeric: tabular-nums; }
+  .loader__bar { width: min(320px, 70vw); height: 1px; background: rgba(34, 26, 44, 0.15); }
+  .loader__bar span { display: block; height: 100%; width: 0; background: var(--ink); }
 </style>

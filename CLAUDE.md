@@ -213,7 +213,7 @@ These come from her own feedback. Follow them for every word on the site.
   - Fast: optimized images, lazy-loaded media, Lighthouse 90+
   - Accessible: semantic HTML, alt text, contrast checks (yellow-on-white text fails, so avoid it)
   - SEO and social: page title, meta description and an OG image in her brand
-- **Domain:** ⚠️ TODO, Dione to decide
+- **Domain:** `meetdione.vercel.app` (free, chosen Oct 26 2026; not set up yet, availability to confirm). Write it as **meetdioné** in copy; the URL itself can't carry the é. A paid domain (e.g. meetdione.com) can come later.
 
 ---
 
